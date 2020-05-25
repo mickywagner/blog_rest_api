@@ -2,6 +2,8 @@ import 'dotenv/config'
 import cors from 'cors'
 import express from 'express'
 
+import models, { connectDb } from './models'
+
 const app = express()
 
 app.use(cors())
