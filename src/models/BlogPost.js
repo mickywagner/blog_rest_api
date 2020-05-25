@@ -8,7 +8,9 @@ const BlogPostSchema = new Schema(
         author: {type: Schema.Types.ObjectId, ref: 'User', required: true},
         timestamp: {type: Date, required: true},
         isPublished: {type: Boolean, default: false},
-        comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
+        comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
+        Likes: [{type: Number, default: 0}],
+        Dislikes: [{type: Number, default: 0}]
     }
 )
 
