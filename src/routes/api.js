@@ -3,6 +3,7 @@ const router = express.Router()
 
 import blogPostController from '../controllers/blogPostController'
 import commentController from '../controllers/commentController'
+import userController from '../controllers/userController'
 
 // BLOT POST ROUTES
 
@@ -42,5 +43,18 @@ router.delete('/posts/:postId/comments/:commentId/delete', commentController.com
 
 // USER ROUTES
 
+router.get('/users/:userId', userController.user_details)
+
+router.get('/users/create', userController.user_create_get)
+
+router.post('/users/create', userController.user_create_post)
+
+router.get('/users/:userId/edit', userController.user_edit_get)
+
+router.put('/users/:userId/edit', userController.user_edit_put)
+
+router.get('/users/:userId/delete', userController.user_delete_get)
+
+router.delete('/users/:userId/delete', userController.user_delete_delete)
 
 export default router

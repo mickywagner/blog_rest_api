@@ -1,5 +1,4 @@
 import { User } from '../models'
-import { response } from 'express'
 
 exports.user_details = (req, res) => {
     res.send('GET request for user details')
