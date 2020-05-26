@@ -16,11 +16,11 @@ exports.posts_create_post = (req, res) => {
     res.send('POST request to create new blog post')
 }
 
-exports.posts_update_get = (req, res) => {
+exports.posts_edit_get = (req, res) => {
     res.send('GET request to edit a blog post')
 }
 
-exports.posts_update_put = (req, res) => {
+exports.posts_edit_put = (req, res) => {
     res.send('PUT request to edit blog post')
 }
 
