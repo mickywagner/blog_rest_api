@@ -7,6 +7,7 @@ const BlogPostSchema = new Schema(
         title: {type: String, required: true},
         author: {type: Schema.Types.ObjectId, ref: 'User', required: true},
         timestamp: {type: Date, required: true},
+        text: { type: String, required: true},
         isPublished: {type: Boolean, default: false},
         comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
         Likes: [{type: Number, default: 0}],

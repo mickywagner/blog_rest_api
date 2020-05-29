@@ -9,52 +9,52 @@ import userController from '../controllers/userController'
 
 router.get('/posts', blogPostController.posts_list)
 
+router.post('/posts', blogPostController.posts_create_post)
+
 router.get('/posts/:id', blogPostController.posts_details)
 
-router.get('/posts/create', blogPostController.posts_create_get)
+router.put('/posts/:id', blogPostController.posts_edit_put)
 
-router.post('/posts/create', blogPostController.posts_create_post)
+router.delete('/posts/:id', blogPostController.posts_delete_delete)
 
-router.get('/posts/:id/edit', blogPostController.posts_edit_get)
+// router.get('/posts', blogPostController.posts_create_get)
+// router.get('/posts/:id', blogPostController.posts_edit_get)
+// router.get('/posts/:id', blogPostController.posts_delete_get)
 
-router.put('/posts/:id/edit', blogPostController.posts_edit_put)
-
-router.get('/posts/:id/delete', blogPostController.posts_delete_get)
-
-router.delete('/posts/:id/delete', blogPostController.posts_delete_delete)
 
 // COMMENT ROUTES
 
 router.get('/posts/:postId/comments', commentController.comments_list)
 
+router.post('/posts/:postId/comments', commentController.comments_create_post)
+
 router.get('/posts/:postId/comments/:commentId', commentController.comment_details)
 
-router.get('/posts/:postId/comments/create', commentController.comments_create_get)
+router.put('/posts/:postId/comments/:commentId', commentController.comments_edit_put)
 
-router.post('/posts/:postId/comments/create', commentController.comments_create_post)
+router.delete('/posts/:postId/comments/:commentId', commentController.comments_delete_delete)
 
-router.get('/posts/:postId/comments/:id/edit', commentController.comments_edit_get)
+// router.get('/posts/:postId/comments', commentController.comments_create_get)
+// router.get('/posts/:postId/comments/:id', commentController.comments_edit_get)
+// router.get('/posts/:postId/comments/:commentId', commentController.comments_delete_get)
 
-router.put('/posts/:postId/comments/:id/edit', commentController.comments_edit_put)
 
-router.get('/posts/:postId/comments/:commentId/delete', commentController.comments_delete_get)
-
-router.delete('/posts/:postId/comments/:commentId/delete', commentController.comments_delete_delete)
 
 // USER ROUTES
 
+router.get('/users', userController.user_list)
+
+router.post('/users', userController.user_create_post)
+
 router.get('/users/:userId', userController.user_details)
 
-router.get('/users/create', userController.user_create_get)
+router.put('/users/:userId', userController.user_edit_put)
 
-router.post('/users/create', userController.user_create_post)
+router.delete('/users/:userId', userController.user_delete_delete)
 
-router.get('/users/:userId/edit', userController.user_edit_get)
+// router.get('/users', userController.user_create_get)
+// router.get('/users/:userId', userController.user_edit_get)
+// router.get('/users/:userId', userController.user_delete_get)
 
-router.put('/users/:userId/edit', userController.user_edit_put)
-
-router.get('/users/:userId/delete', userController.user_delete_get)
-
-router.delete('/users/:userId/delete', userController.user_delete_delete)
 
 export default router
