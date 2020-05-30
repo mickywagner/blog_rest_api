@@ -3,7 +3,6 @@ import Comment from '../models/Comment'
 
 // posts/postId/comments
 exports.comments_list = (req, res, next) => {
-    console.log(req.params.postId)
     Comment.find({post: req.params.postId})
            .populate('post')
            .exec(function(err, comments) {
@@ -20,8 +19,12 @@ exports.comments_create_post = (req, res) => {
 }
 
 exports.comment_details = (req, res, next) => {
-    console.log(req.params)
-    res.send(`GET request view api/posts/:postId/comments/${req.params.id}`)
+    Comment.find({_id: req.params.commentId})
+           .populate('post')
+           .exec(function(err, comment) {
+               if(err) { return next(err)}
+               return res.send(comment)
+           })
 }
 
 exports.comments_edit_put = (req, res) => {
