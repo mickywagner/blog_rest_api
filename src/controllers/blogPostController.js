@@ -1,7 +1,13 @@
-import { BlogPost, User } from '../models'
+import BlogPost from '../models/BlogPost'
 
-exports.posts_list = (req, res) => {
-    res.send('GET request on posts resource')
+exports.posts_list = (req, res, next) => {
+    BlogPost.find()
+            .populate('author')
+            .exec(function(err, posts) {
+        if(err) { return next(err)}
+        return res.send(Object.values(posts))
+    })
+    // res.send('GET request on posts resource')
 }
 
 exports.posts_create_post = (req, res) => {
