@@ -1,6 +1,8 @@
-import { BlogPost, Comments } from '../models'
+import BlogPost from '../models/BlogPost'
+import Comment from '../models/Comment'
 
-exports.comments_list = (req, res) => {
+// posts/postId/comments
+exports.comments_list = (req, res, next) => {
     res.send('GET request view all coments on post')
 }
 
@@ -8,8 +10,9 @@ exports.comments_create_post = (req, res) => {
     res.send('POST request create new comment')
 }
 
-exports.comment_details = (req, res) => {
-    res.send(`GET request view api/posts/:postId/comments/${req.param.id}`)
+exports.comment_details = (req, res, next) => {
+    console.log(req.params)
+    res.send(`GET request view api/posts/:postId/comments/${req.params.id}`)
 }
 
 exports.comments_edit_put = (req, res) => {

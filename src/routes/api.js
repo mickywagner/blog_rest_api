@@ -11,11 +11,11 @@ router.get('/posts', blogPostController.posts_list)
 
 router.post('/posts', blogPostController.posts_create_post)
 
-router.get('/posts/:id', blogPostController.posts_details)
+router.get('/posts/:postId', blogPostController.posts_details)
 
-router.put('/posts/:id', blogPostController.posts_edit_put)
+router.put('/posts/:postId', blogPostController.posts_edit_put)
 
-router.delete('/posts/:id', blogPostController.posts_delete_delete)
+router.delete('/posts/:postId', blogPostController.posts_delete_delete)
 
 // router.get('/posts', blogPostController.posts_create_get)
 // router.get('/posts/:id', blogPostController.posts_edit_get)

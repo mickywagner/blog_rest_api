@@ -14,13 +14,13 @@ exports.posts_create_post = (req, res) => {
     res.send(`POST request blog posts resource`)
 }
 
-exports.posts_details = (req, res) => {
-    BlogPost.find({_id: req.params.id})
-            .populate('author')
-            .exec(function(err, post) {
-                if(err) { return next(err)}
-                return res.send(Object.values(post))
-            })
+exports.posts_details = (req, res, next) => {
+   BlogPost.find({_id: req.params.postId}) 
+           .populate('author')
+           .exec(function(err, post) {
+               if(err) return next(err)
+               return res.send(post)
+           })
 }
 
 exports.posts_edit_put = (req, res) => {
