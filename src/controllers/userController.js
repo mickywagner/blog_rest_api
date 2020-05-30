@@ -1,8 +1,12 @@
-import { User } from '../models'
+import User from '../models/User'
 
 
-exports.user_list = (req, res) => {
-    res.send(`GET request for all users`)
+exports.user_list = (req, res, next) => {
+    User.find()
+        .exec(function(err, users) {
+            if(err) { return next(err)}
+            return res.send(Object.values(users))
+        })
 }
 exports.user_create_post = (req, res) => {
     let user = new User(
