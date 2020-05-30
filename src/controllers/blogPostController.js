@@ -7,7 +7,7 @@ exports.posts_list = (req, res, next) => {
         if(err) { return next(err)}
         return res.send(Object.values(posts))
     })
-    // res.send('GET request on posts resource')
+    
 }
 
 exports.posts_create_post = (req, res) => {
@@ -15,7 +15,12 @@ exports.posts_create_post = (req, res) => {
 }
 
 exports.posts_details = (req, res) => {
-    res.send(`GET request on posts/${req.params.id}`)
+    BlogPost.find({_id: req.params.id})
+            .populate('author')
+            .exec(function(err, post) {
+                if(err) { return next(err)}
+                return res.send(Object.values(post))
+            })
 }
 
 exports.posts_edit_put = (req, res) => {
