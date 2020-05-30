@@ -3,7 +3,16 @@ import Comment from '../models/Comment'
 
 // posts/postId/comments
 exports.comments_list = (req, res, next) => {
-    res.send('GET request view all coments on post')
+    console.log(req.params.postId)
+    Comment.find({post: req.params.postId})
+           .populate('post')
+           .exec(function(err, comments) {
+               if(err) { return next(err)}
+               if(comments.lenght < 1) {
+                   return res.send('No comments on this post')
+               }
+               return res.send(Object.values(comments))
+           }) 
 }
 
 exports.comments_create_post = (req, res) => {
