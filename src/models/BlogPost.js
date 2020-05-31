@@ -9,8 +9,8 @@ const BlogPostSchema = new Schema(
         timestamp: {type: Date, required: true},
         text: { type: String, required: true},
         isPublished: {type: Boolean, default: false},
-        Likes: {type: Number, default: 0},
-        Dislikes: {type: Number, default: 0}
+        likes: {type: Number, default: 0},
+        dislikes: {type: Number, default: 0}
     }
 )
 

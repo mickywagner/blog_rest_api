@@ -34,8 +34,23 @@ exports.posts_details = (req, res, next) => {
            })
 }
 
-exports.posts_edit_put = (req, res) => {
-    res.send(`PUT request to edit blog post at post/${req.params.id}`)
+exports.posts_edit_put = (req, res, next) => {
+    const editedBlog = new BlogPost(
+        {
+            _id: req.params.postId,
+            title: req.body.title,
+            text: req.body.text,
+            isPublished: req.body.isPublished,
+            likes: req.body.likes,
+            dislikes: req.body.dislikes
+
+        }
+    )
+    
+    BlogPost.findByIdAndUpdate(req.params.postId, editedBlog, {}, function(err, thepost) {
+        if(err) { return next(err)}
+        return res.send(thepost)
+    })
 }
 
 exports.posts_delete_delete = (req, res, next) => {
