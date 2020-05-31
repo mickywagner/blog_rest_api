@@ -36,8 +36,19 @@ exports.comment_details = (req, res, next) => {
            })
 }
 
-exports.comments_edit_put = (req, res) => {
-    res.send(`PUT request to edit a api/posts/:postId/comments/${req.param.id}`)
+exports.comments_edit_put = (req, res, next) => {
+    const editComment = new Comment(
+        {
+            _id: req.params.commentId,
+            name: req.body.name,
+            text: req.body.text,
+        }
+    )
+
+    Comment.findByIdAndUpdate(req.params.commentId, editComment, {}, function(err, thecomment) {
+        if(err) { return next(err)}
+        return res.send(thecomment)
+    })
 }
 
 exports.comments_delete_delete = (req, res, next) => {
