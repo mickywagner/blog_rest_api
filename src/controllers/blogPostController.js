@@ -1,4 +1,5 @@
 import BlogPost from '../models/BlogPost'
+import Comment from '../models/Comment'
 
 exports.posts_list = (req, res, next) => {
     BlogPost.find()
@@ -38,7 +39,10 @@ exports.posts_edit_put = (req, res) => {
 }
 
 exports.posts_delete_delete = (req, res, next) => {
-    // Comment.find({post: req.params.postId}).deleteMany()
+    Comment.find().deleteMany({post: req.params.postId}, function(err) {
+        if(err) {return next(err)}
+        console.log('comments deleted')
+    })
     BlogPost.findByIdAndDelete(req.params.postId, function deletePost(err) {
         if(err) {return next(err)}
         return res.send(`Blog Post ${req.params.postId} was deleted`)

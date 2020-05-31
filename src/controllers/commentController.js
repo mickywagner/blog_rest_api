@@ -15,7 +15,16 @@ exports.comments_list = (req, res, next) => {
 }
 
 exports.comments_create_post = (req, res, next) => {
-    res.send('POST request create new comment')
+    const comment = new Comment(
+        {
+            name: req.body.name,
+            text: req.body.text,
+            timestamp: Date.now(),
+            post: req.params.postId
+        }
+    )
+    comment.save()
+    return res.send(comment)
 }
 
 exports.comment_details = (req, res, next) => {
