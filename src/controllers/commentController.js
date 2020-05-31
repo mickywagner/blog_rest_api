@@ -40,8 +40,11 @@ exports.comments_edit_put = (req, res) => {
     res.send(`PUT request to edit a api/posts/:postId/comments/${req.param.id}`)
 }
 
-exports.comments_delete_delete = (req, res) => {
-    res.send(`DELETE request to api/posts/:postId/comments/${req.param.id}`)
+exports.comments_delete_delete = (req, res, next) => {
+    Comment.findByIdAndDelete(req.params.commentId, function deleteComment(err) {
+        if(err) { return next(err)}
+        return res.send(`Comment ${req.params.commentId} was deleted`)
+    })
 }
 
 // exports.comments_create_get = (req, res) => {
