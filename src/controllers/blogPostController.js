@@ -10,8 +10,18 @@ exports.posts_list = (req, res, next) => {
     
 }
 
-exports.posts_create_post = (req, res) => {
-    res.send(`POST request blog posts resource`)
+exports.posts_create_post = (req, res, next) => {
+    const blog = new BlogPost(
+        {
+            title: req.body.title,
+            author: '5ed1b2017d478a2304efbe52',
+            timestamp: Date.now(),
+            text: req.body.text
+        }
+    )
+    blog.save()
+
+    return res.send(blog)
 }
 
 exports.posts_details = (req, res, next) => {

@@ -14,7 +14,7 @@ exports.comments_list = (req, res, next) => {
            }) 
 }
 
-exports.comments_create_post = (req, res) => {
+exports.comments_create_post = (req, res, next) => {
     res.send('POST request create new comment')
 }
 
