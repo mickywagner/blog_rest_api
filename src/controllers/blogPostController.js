@@ -37,8 +37,13 @@ exports.posts_edit_put = (req, res) => {
     res.send(`PUT request to edit blog post at post/${req.params.id}`)
 }
 
-exports.posts_delete_delete = (req, res) => {
-    res.send(`DELETE request to posts/${req.params.id}`)
+exports.posts_delete_delete = (req, res, next) => {
+    // Comment.find({post: req.params.postId}).deleteMany()
+    BlogPost.findByIdAndDelete(req.params.postId, function deletePost(err) {
+        if(err) {return next(err)}
+        return res.send(`Blog Post ${req.params.postId} was deleted`)
+    })
+            
 }
 
 
