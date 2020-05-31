@@ -3,7 +3,7 @@ import { models } from "mongoose"
 const createUserWithPosts = async () => {
     const testUser = new models.User(
         {
-            email: 'test@gmail.com',
+            email: 'testuser@gmail.com',
             username: 'testuser',
             password: 'test123'
         }
@@ -11,26 +11,29 @@ const createUserWithPosts = async () => {
 
     const post1 = new models.BlogPost(
         {
-            title: 'Test Blog Post',
+            title: 'Building my first API',
             author: testUser.id,
             timestamp: Date.now(),
-            text: 'This is a sample blog post for my database'
+            text: 'Currently I am working on building my first API. It is a blog API and I am almost done with all the methods!',
+            likes: 5
         }
     )
 
     const post2 = new models.BlogPost(
         {
-            title: 'Second post',
+            title: 'Game of Thrones',
             author: testUser.id,
             timestamp: Date.now(),
-            text: 'I am not sure what to do next'
+            text: 'When you play the game of thrones, you win or you die!',
+            likes: 4,
+            dislikes: 4
         }
     )
 
     const comment1 = new models.Comment(
         {
-            name: 'Commenter One',
-            text: 'This is a comment',
+            name: 'Micky',
+            text: 'Yay! Then we can build out your portfolio and resume!',
             timestamp: Date.now(),
             post: post1.id
         }
@@ -38,8 +41,8 @@ const createUserWithPosts = async () => {
 
     const comment2 = new models.Comment(
         {
-            name: 'Commenter Two',
-            text: 'seccond person to comment',
+            name: 'Mitch',
+            text: 'Good job baba!',
             timestamp: Date.now(),
             post: post1.id
         }
@@ -47,8 +50,8 @@ const createUserWithPosts = async () => {
 
     const comment3 = new models.Comment(
         {
-            name: 'Commenter One',
-            text: 'I also comment on second post',
+            name: 'Daenerys Targaryean, Mother of Dragons, etc.',
+            text: 'I will take what is mine with fire and blood!',
             timestamp: Date.now(),
             post: post2.id
         }
