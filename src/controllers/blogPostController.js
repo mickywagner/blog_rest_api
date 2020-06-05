@@ -1,5 +1,6 @@
 import BlogPost from '../models/BlogPost'
 import Comment from '../models/Comment'
+import User from '../models/User'
 
 exports.posts_list = (req, res, next) => {
     BlogPost.find()
@@ -15,7 +16,7 @@ exports.posts_create_post = (req, res, next) => {
     const blog = new BlogPost(
         {
             title: req.body.title,
-            author: '5ed1b2017d478a2304efbe52',
+            author: '5edacb0b04c59ad30834d6bd',
             timestamp: Date.now(),
             text: req.body.text
         }
@@ -28,6 +29,7 @@ exports.posts_create_post = (req, res, next) => {
 exports.posts_details = (req, res, next) => {
    BlogPost.find({_id: req.params.postId}) 
            .populate('author')
+           .populate('comments')
            .exec(function(err, post) {
                if(err) return next(err)
                return res.send(post)

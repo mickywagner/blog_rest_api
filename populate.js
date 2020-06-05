@@ -60,9 +60,29 @@ const createUserWithPosts = async () => {
     await testUser.save()
     await post1.save()
     await post2.save()
-    await comment1.save()
-    await comment2.save()
-    await comment3.save()
+    await comment1.save(function(err) {
+        if(err) {console.log(err)}
+        `new comment created`
+        post1.comments.push(comment1._id)
+    }
+        
+    )
+    await comment2.save(function(err) {
+            if(err) {console.log(err)}
+            `new comment created`
+            post1.comments.push(comment2._id)
+            post1.save()
+        }
+    )
+    await comment3.save(function(err) {
+        if(err) {console.log(err)}
+        `new comment created`
+        post2.comments.push(comment3._id)
+        post2.save()
+    }
+    )
+
+    
 }
 
 export default createUserWithPosts

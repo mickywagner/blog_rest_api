@@ -23,8 +23,21 @@ exports.comments_create_post = (req, res, next) => {
             post: req.params.postId
         }
     )
-    comment.save()
-    return res.send(comment)
+
+    BlogPost.findById(req.params.postId).exec(function(err, thepost) {
+        if(err) {return next(err)}
+        console.log(thepost)
+        comment.save(function(err) {
+            if (err) {return next(err)}
+            console.log(`${comment.name} posted a comment`)
+            thepost.comments.push(comment._id)
+            thepost.save()
+            return res.send(comment)
+        })
+
+    })
+
+    
 }
 
 exports.comment_details = (req, res, next) => {

@@ -9,7 +9,7 @@ const BlogPostSchema = new Schema(
         timestamp: {type: Date, required: true},
         text: { type: String, required: true},
         isPublished: {type: Boolean, default: false},
-        comments: [{type:Schema.Types.ObjectId, ref: "Comments"}],
+        comments: [{type:Schema.Types.ObjectId, ref: "Comment"}],
         likes: {type: Number, default: 0},
         dislikes: {type: Number, default: 0}
     }
