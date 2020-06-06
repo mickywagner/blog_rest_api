@@ -1,10 +1,10 @@
 import BlogPost from '../models/BlogPost'
 import Comment from '../models/Comment'
+import User from '../models/User'
 
 // posts/postId/comments
 exports.comments_list = (req, res, next) => {
     Comment.find({post: req.params.postId})
-           .populate('post')
            .exec(function(err, comments) {
                if(err) { return next(err)}
                if(comments.lenght < 1) {
@@ -69,6 +69,8 @@ exports.comments_delete_delete = (req, res, next) => {
         if(err) { return next(err)}
         return res.send(`Comment ${req.params.commentId} was deleted`)
     })
+
+
 }
 
 // exports.comments_create_get = (req, res) => {
