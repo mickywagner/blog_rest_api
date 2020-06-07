@@ -19,7 +19,7 @@ app.use('/api', apiRouter)
 connectDb().then(async () => {
 //    createUserWithPosts()
     app.listen(process.env.PORT, () => {
-        console.log(`App listening on port 3000 ${process.env.PORT}`)
+        console.log(`App listening on port ${process.env.PORT}`)
     })
 })
     

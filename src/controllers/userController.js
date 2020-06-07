@@ -1,7 +1,6 @@
 import 'dotenv/config'
 import User from '../models/User'
 import passport from 'passport'
-import initialize from '../passport'
 import jwt from 'jsonwebtoken'
 import passportJwt from 'passport-jwt'
 
