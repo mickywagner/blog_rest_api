@@ -42,6 +42,8 @@ router.delete('/posts/:postId/comments/:commentId', commentController.comments_d
 
 // USER ROUTES
 
+router.post('/login', userController.user_login) 
+
 router.get('/users', userController.user_list)
 
 router.post('/users', userController.user_create_post)
