@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import Header from './Components/Header'
 import {AppContext} from './Context/Context'
+import BlogPost from './Components/BlogPost'
 
 import './App.css';
 
@@ -8,19 +9,13 @@ function App() {
 
   const { allBlogPosts, isLoading } = useContext(AppContext)
 
-  const posts = allBlogPosts.map(post => (
-    <div key={post._id}>
-      <h5>{post.title}</h5>
-      <p>{post.text}</p>
-    </div>
-  ))
+  const posts = allBlogPosts.map(post => <BlogPost key={post._id} post={post} />)
 
   return (
     <div className="App">
       <header className="App-header">
           <Header />
           {isLoading && <p>Blog posts are loading...</p>}
-
           {allBlogPosts.length !== 0 && posts } 
           
       </header>

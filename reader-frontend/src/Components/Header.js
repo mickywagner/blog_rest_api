@@ -2,7 +2,9 @@ import React from 'react';
 
 function Header() {
     return(
-        <p>Blog Header/Navigation</p>
+        <div className="App-header">
+            Blog Header/Navigation
+        </div>
     )
 }
 
