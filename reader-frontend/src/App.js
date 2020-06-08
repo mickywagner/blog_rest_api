@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
+import Header from './Components/Header'
+
 import './App.css';
 
 function App() {
@@ -8,11 +9,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/posts')
+    fetch('/api/posts')
       .then(response => response.json())
       .then(json => {
         setAllPosts(json)
-        console.log(json)
         setIsLoading(false)
       }
       )
@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <h1>Reader Front-end</h1>
+          <Header />
           {isLoading && <p>Blog posts are loading...</p>}
 
           {allPosts.length !== 0 && posts } 
