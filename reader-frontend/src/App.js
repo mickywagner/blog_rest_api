@@ -9,7 +9,7 @@ function App() {
   const { allBlogPosts, isLoading } = useContext(AppContext)
 
   const posts = allBlogPosts.map(post => (
-    <div>
+    <div key={post._id}>
       <h5>{post.title}</h5>
       <p>{post.text}</p>
     </div>
