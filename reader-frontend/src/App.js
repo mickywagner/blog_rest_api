@@ -1,25 +1,14 @@
-import React, {useState, useEffect} from 'react';
+import React, {useContext} from 'react';
 import Header from './Components/Header'
+import {AppContext} from './Context/Context'
 
 import './App.css';
 
 function App() {
-  
-  const [allPosts, setAllPosts] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    fetch('/api/posts')
-      .then(response => response.json())
-      .then(json => {
-        setAllPosts(json)
-        setIsLoading(false)
-      }
-      )
-      .catch(err => console.log(err))
-  }, [])
+  const { allBlogPosts, isLoading } = useContext(AppContext)
 
-  const posts = allPosts.map(post => (
+  const posts = allBlogPosts.map(post => (
     <div>
       <h5>{post.title}</h5>
       <p>{post.text}</p>
@@ -32,7 +21,7 @@ function App() {
           <Header />
           {isLoading && <p>Blog posts are loading...</p>}
 
-          {allPosts.length !== 0 && posts } 
+          {allBlogPosts.length !== 0 && posts } 
           
       </header>
     </div>
