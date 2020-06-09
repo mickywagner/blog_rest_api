@@ -10,9 +10,6 @@ function Sidebar() {
             <p>Hi! I'm Michaela and for the past year I've been teaching myself how to code. This is a blog API I built using Express/Node for the backend and React from the frontend.</p>
             <p>This is me on a sail boat because I miss the ocean and I miss travelling.</p>
                 
-            
-        
-                
         </div>
     )
 }

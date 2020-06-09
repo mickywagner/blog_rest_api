@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import Header from './Components/Header'
 
-import { Switch, Link } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Posts from './pages/Posts'
 
@@ -14,13 +14,13 @@ function App() {
           <Header />
 
           <Switch>
-            <Link exact path="/">
+            <Route exact path="/">
               <Home />
-            </Link>
+            </Route>
 
-            <Link path="/posts">
+            <Route path="/posts">
               <Posts />
-            </Link>
+            </Route>
 
           </Switch>
     </div>

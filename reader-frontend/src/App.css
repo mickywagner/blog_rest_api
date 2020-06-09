@@ -17,6 +17,7 @@
 a {
   color: white;
   text-decoration: none;
+  cursor: default;
 }
 
 /* Nav */
@@ -29,6 +30,11 @@ nav ul {
 nav ul li {
   margin: 0 10px;
 }
+
+nav a {
+  cursor: pointer;
+}
+
 /* Header */
 
 .app-header {
