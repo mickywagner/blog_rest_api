@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,600&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -30,7 +32,7 @@ nav ul li {
 /* Header */
 
 .app-header {
-  background: #390e4e;
+  background:cornflowerblue;
   height: 50px;
   display: flex;
   align-items: center;
@@ -39,28 +41,39 @@ nav ul li {
 
 /* Blog Posts */
 
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
 .blog-post {
   background: white;
   color: #282c34;
   width: 65%;
-  margin: 10px;
+  margin-bottom: 30px;
+  padding: 15px 30px;
 }
 
 .blog-post h1 {
   padding: 5px;
-  background: cornflowerblue;
+  text-transform: capitalize;
+  color: cornflowerblue;
+  font-family: 'Playfair Display', serif;
   margin: 0;
+  text-align: center;
 }
 
 .blog-post-body {
   padding: 10px 10px;
-  
 }
 
 .blog-post-body p {
   font-weight: 500;
   line-height: 1.75em;
+  text-align: justify;
 }
+
 
 .blog-post-body .author {
   color: gray;
