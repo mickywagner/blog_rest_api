@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {AppContext} from '../Context/Context'
 import BlogPost from '../Components/BlogPost'
+import Sidebar from '../Components/Sidebar'
 
 function Posts() {
 
@@ -15,6 +16,8 @@ function Posts() {
                 {isLoading && <p>Blog posts are loading...</p>}
                 {allBlogPosts.length !== 0 && posts } 
             </div>
+
+            <Sidebar />
   
         </div>
     )

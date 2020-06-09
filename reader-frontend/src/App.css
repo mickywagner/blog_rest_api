@@ -42,15 +42,15 @@ nav ul li {
 /* Blog Posts */
 
 .main {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 65% 1fr;
   padding: 20px;
 }
 
 .blog-post {
   background: white;
   color: #282c34;
-  width: 65%;
   margin-bottom: 30px;
   padding: 15px 30px;
 }
@@ -81,5 +81,29 @@ nav ul li {
   padding-bottom: 20px;
 }
 
+/* Sidebar */
 
+.sidebar {
+  background: white;
+  padding: 20px;
+  height: fit-content;
+}
 
+.sidebar h1 {
+  color: cornflowerblue;
+  font-family: 'Playfair Display', serif;
+}
+
+.sidebar .img-container {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.img-container img {
+  width: 100%;
+}
+
+.sidebar p {
+  color: #282c34;
+  margin-bottom: 10px;
+}
