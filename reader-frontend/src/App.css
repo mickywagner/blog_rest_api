@@ -1,10 +1,21 @@
 .App {
-  text-align: center;
   background-color: #282c34;
   color: white;
   min-height: 100vh;
+  display: grid;
+
 }
 
+/* Blog Posts */
+
+.blog-post {
+  background: white;
+  color: #282c34;
+  border-radius: 5px;
+  width: 50%;
+  margin: 20px;
+  padding: 10px;
+}
 
 
 

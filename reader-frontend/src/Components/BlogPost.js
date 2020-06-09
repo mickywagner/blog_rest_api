@@ -6,7 +6,10 @@ function BlogPost({post}) {
     return(
         <div className='blog-post'>
             <h1>{post.title}</h1>
-            <p>{post.text}</p>
+            <div className='blog-post-body'>
+                <author>Posted by {post.author.username} at {post.timestamp}</author>
+                <p>{post.text}</p>
+            </div> 
         </div>
     )
 }
