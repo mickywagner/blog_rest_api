@@ -17,7 +17,7 @@
 a {
   color: white;
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
 }
 
 /* Nav */
@@ -31,9 +31,6 @@ nav ul li {
   margin: 0 10px;
 }
 
-nav a {
-  cursor: pointer;
-}
 
 /* Header */
 
@@ -54,11 +51,23 @@ nav a {
   padding: 20px;
 }
 
+.posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .blog-post {
   background: white;
   color: #282c34;
   margin-bottom: 30px;
   padding: 15px 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .blog-post h1 {
@@ -85,6 +94,16 @@ nav a {
   color: gray;
   font-style: italic;
   padding-bottom: 20px;
+}
+
+.blog-post button {
+  border: 1px solid cornflowerblue;
+  background: white;
+  color: cornflowerblue;
+  font-size: 1.2em;
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  padding: 10px;
 }
 
 /* Sidebar */

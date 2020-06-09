@@ -4,6 +4,7 @@ import Header from './Components/Header'
 import { Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Posts from './pages/Posts'
+import BlogPage from './pages/BlogPage'
 
 import './App.css';
 
@@ -18,8 +19,11 @@ function App() {
               <Home />
             </Route>
 
-            <Route path="/posts">
+            <Route exact path="/posts">
               <Posts />
+            </Route>
+
+            <Route path='/posts/:id' component={BlogPage}>
             </Route>
 
           </Switch>

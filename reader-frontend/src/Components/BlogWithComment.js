@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { appContext, AppContext } from '../Context/Context'
 
 import { Link } from 'react-router-dom'
 
-function BlogPost({post}) {
+function BlogWithComment({post}) {
     return(
         <div className='blog-post'>
             
@@ -14,12 +13,13 @@ function BlogPost({post}) {
                 <p>{post.text}</p>
             </div>
 
-            <Link to={`/posts/${post._id}`}>
-                <button>Read More</button>
-            </Link>
+            <div className='blog-comments'>
+                <p>{post.comments}</p>
+            </div>
+
             
         </div>
     )
 }
 
-export default BlogPost
+export default BlogWithComment
