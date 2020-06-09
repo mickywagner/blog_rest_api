@@ -17,6 +17,16 @@ a {
   text-decoration: none;
 }
 
+/* Nav */
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
 /* Header */
 
 .app-header {
