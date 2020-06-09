@@ -2,6 +2,9 @@ import React, {useContext} from 'react';
 import Header from './Components/Header'
 import {AppContext} from './Context/Context'
 import BlogPost from './Components/BlogPost'
+import { Switch, Link } from 'react-router-dom'
+import Home from './pages/Home'
+import Posts from './pages/Posts'
 
 import './App.css';
 
@@ -15,8 +18,20 @@ function App() {
     <div className="App">
       <header className="App-header">
           <Header />
-          {isLoading && <p>Blog posts are loading...</p>}
-          {allBlogPosts.length !== 0 && posts } 
+
+          <Switch>
+            <Link exact path="/">
+              <Home />
+            </Link>
+
+            <Link path="/posts">
+              <Posts />
+            </Link>
+
+          </Switch>
+          
+          {/* {isLoading && <p>Blog posts are loading...</p>}
+          {allBlogPosts.length !== 0 && posts }  */}
           
       </header>
     </div>

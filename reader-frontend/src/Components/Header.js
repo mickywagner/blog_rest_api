@@ -2,8 +2,8 @@ import React from 'react';
 
 function Header() {
     return(
-        <div className="App-header">
-            Blog Header/Navigation
+        <div className="app-header">
+            
         </div>
     )
 }

@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .App {
   background-color: #282c34;
   color: white;
@@ -6,15 +12,50 @@
 
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Header */
+
+.app-header {
+  background: #390e4e;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
 /* Blog Posts */
 
 .blog-post {
   background: white;
   color: #282c34;
-  border-radius: 5px;
-  width: 50%;
-  margin: 20px;
-  padding: 10px;
+  width: 65%;
+  margin: 10px;
+}
+
+.blog-post h1 {
+  padding: 5px;
+  background: cornflowerblue;
+  margin: 0;
+}
+
+.blog-post-body {
+  padding: 10px 10px;
+  
+}
+
+.blog-post-body p {
+  font-weight: 500;
+  line-height: 1.75em;
+}
+
+.blog-post-body .author {
+  color: gray;
+  font-style: italic;
+  padding-bottom: 20px;
 }
 
 
