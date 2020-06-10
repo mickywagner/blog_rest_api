@@ -19,11 +19,11 @@ function App() {
               <Home />
             </Route>
 
-            <Route exact path="/posts">
+            <Route exact path="/blog">
               <Posts />
             </Route>
 
-            <Route path='/posts/:id' component={BlogPage}>
+            <Route path='/blog/:id' component={BlogPage}>
             </Route>
 
           </Switch>

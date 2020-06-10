@@ -14,7 +14,7 @@ function BlogPost({post}) {
                 <p>{post.text}</p>
             </div>
 
-            <Link to={`/posts/${post._id}`}>
+            <Link to={`/blog/${post._id}`}>
                 <button>Read More</button>
             </Link>
             
