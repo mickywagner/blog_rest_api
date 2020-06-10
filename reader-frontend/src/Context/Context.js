@@ -10,7 +10,8 @@ function AppContextProvider({children}) {
         fetch('http://localhost:3001/api/posts')
           .then(response => response.json())
           .then(json => {
-            setAllBlogPosts(json)
+            const publishedPosts = json.filter(post => post.isPublished === true) 
+            setAllBlogPosts(publishedPosts)
             setIsLoading(false)
           }
           )
