@@ -10,7 +10,7 @@ function BlogPost({post}) {
             <h1>{post.title}</h1>
             
             <div className='blog-post-body'>
-                <p className="author">Posted by {post.author.username} at {post.timestamp}</p>
+                <p className="author">Posted by {post.author.username} at {post.date}</p>
                 <p>{post.text}</p>
             </div>
 

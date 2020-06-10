@@ -11,7 +11,7 @@ function BlogWithComment(props) {
         <React.Fragment>
             <div className='blog-post-feature'>
                 <div className="blog-body">
-                    <p>{props.post.timestamp}</p>
+                    <p>{props.post.date}</p>
                     <h1>{props.post.title}</h1>
                     <p>By: {props.post.author.username}</p> 
                     <p>{props.post.text}</p> 

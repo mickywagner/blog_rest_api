@@ -7,7 +7,7 @@ exports.posts_list = (req, res, next) => {
             .populate('author')
             .exec(function(err, posts) {
         if(err) { return next(err)}
-        return res.send(Object.values(posts))
+        return res.json(posts)
     })
     
 }
@@ -23,7 +23,7 @@ exports.posts_create_post = (req, res, next) => {
     )
     blog.save()
 
-    return res.send(blog)
+    return res.send(blog.toJSON())
 }
 
 exports.posts_details = (req, res, next) => {

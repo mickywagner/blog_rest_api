@@ -11,7 +11,7 @@ import createUserWithPosts from '../populate'
 const app = express()
 
 app.use(express.json())
-app.use(express.urlencoded({ extende: true }))
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use('/', indexRouter)
 app.use('/api', apiRouter) 
