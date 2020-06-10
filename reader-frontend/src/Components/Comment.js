@@ -2,7 +2,7 @@ import React from 'react';
 
 function Comment(props) {
     return(
-        <div>
+        <div className="comment">
             <h3>{props.comment.name}</h3>
             <p>{props.comment.text}</p>
         </div>

@@ -118,7 +118,7 @@ nav ul li {
   align-items: center;
 }
 
-.blog-post-feature h1 {
+.blog-post-feature h1, .comments h1 {
   font-family: 'Playfair Display', serif;
   margin-bottom: 10px;
 }
@@ -130,11 +130,23 @@ nav ul li {
 }
 
 .comments {
-  background: #282c34;
-  margin: 20px;
-  color: white;
+  width: 100%;
 }
 
+.comments h1 {
+  font-size: 1.2em;
+}
+
+.comment {
+  border: 1px dotted cornflowerblue;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.comment h3 {
+  text-decoration: underline;
+}
 
 
 /* Sidebar */
@@ -162,4 +174,47 @@ nav ul li {
 .sidebar p {
   color: #282c34;
   margin-bottom: 10px;
+}
+
+/* Comment Form */
+
+.form {
+  border: 1px dotted rgba(255, 255, 255, 0.356);
+  background: cornflowerblue;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.form form {
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+label, input, textarea {
+  margin: 5px 0;
+}
+
+input, textarea {
+  font-size: 1em;
+  padding: 5px;
+  border-radius: 5px;
+  border: 0;
+}
+
+.form button {
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  border: 1px solid #282c34;
+  color: #282c34;
+  margin-top: 10px;
+  align-self: center;
+}
+
+.form button:hover {
+  background: #282c34;
+  color: white;
+  cursor: pointer;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from './Comment'
+import CommentForm from './CommentForm'
 
 function BlogWithComment(props) {
     console.log(props)
@@ -15,9 +16,12 @@ function BlogWithComment(props) {
                     <p>By: {props.post.author.username}</p> 
                     <p>{props.post.text}</p> 
                 </div>
-            </div>
-            <div className="comments">
-                {comments}
+                <div className="comments">
+                    <h1>Comments:</h1>
+                    {comments}
+                    <h1>Leave a new comment: </h1>
+                    <CommentForm />
+                </div>
             </div>
         </React.Fragment>
         
