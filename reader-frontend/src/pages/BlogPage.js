@@ -3,7 +3,7 @@ import BlogWithComment from '../Components/BlogWithComment'
 import { AppContext } from '../Context/Context'
 
 function BlogPage({match}) {
-    const [ blogPost, setBlogPost ] = useState({})
+    const [ blogPost, setBlogPost ] = useState()
     const { isLoading, setIsLoading } = useContext(AppContext)
 
     useEffect(() => {
@@ -20,7 +20,7 @@ function BlogPage({match}) {
 
     return(
         <div className="feature">
-            {isLoading === true ? <p>Blog post is loading...</p> : 
+            {blogPost === undefined ? null : 
             
             <BlogWithComment post={blogPost} />
             

@@ -111,7 +111,31 @@ nav ul li {
 .blog-post-feature {
   background: white;
   color: cornflowerblue;
+  margin: 20px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.blog-post-feature h1 {
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 10px;
+}
+
+.blog-post-feature p {
+  text-align: justify;
+  margin-bottom: 10px;
+  line-height: 2em;
+}
+
+.comments {
+  background: #282c34;
+  margin: 20px;
+  color: white;
+}
+
+
 
 /* Sidebar */
 
