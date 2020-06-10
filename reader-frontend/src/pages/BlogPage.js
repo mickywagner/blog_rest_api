@@ -1,15 +1,30 @@
-import React, {useContext} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import BlogWithComment from '../Components/BlogWithComment'
 import { AppContext } from '../Context/Context'
 
 function BlogPage({match}) {
-    const { allBlogPosts } = useContext(AppContext)
+    const [ blogPost, setBlogPost ] = useState({})
+    const { isLoading, setIsLoading } = useContext(AppContext)
 
-    const post = allBlogPosts.find(post => post._id === match.params.id)
+    useEffect(() => {
+        fetch(`http://localhost:3001/api/posts/${match.params.id}`)
+            .then(response => response.json())
+            .then(json => {
+                setBlogPost(json[0])
+                setIsLoading(false)
+            }
+            )
+            .catch(err => console.log(err))
+    }, [])
+
 
     return(
-        <div>
-            {allBlogPosts.length !== 0 ? <BlogWithComment post={post} key={post._id}/> : <p>Blog post is loading...</p>}
+        <div className="feature">
+            {isLoading === true ? <p>Blog post is loading...</p> : 
+            
+            <BlogWithComment post={blogPost} />
+            
+            }
         </div> 
     )
 }

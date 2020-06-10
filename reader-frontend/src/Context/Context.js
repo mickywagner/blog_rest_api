@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { Route, Switch } from 'react-router-dom'
 
 const AppContext = React.createContext()
 
 function AppContextProvider({children}) {
     const [allBlogPosts, setAllBlogPosts] = useState([])
-    const [allComments, setAllComments] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch('/api/posts')
+        fetch('http://localhost:3001/api/posts')
           .then(response => response.json())
           .then(json => {
             setAllBlogPosts(json)
@@ -21,7 +19,7 @@ function AppContextProvider({children}) {
 
     return(
         <AppContext.Provider
-            value={{allBlogPosts, isLoading}}
+            value={{allBlogPosts, isLoading, setIsLoading}}
         >
             {children}
         </AppContext.Provider>

@@ -106,6 +106,13 @@ nav ul li {
   padding: 10px;
 }
 
+/* BlogPost with Comments */
+
+.blog-post-feature {
+  background: white;
+  color: cornflowerblue;
+}
+
 /* Sidebar */
 
 .sidebar {
