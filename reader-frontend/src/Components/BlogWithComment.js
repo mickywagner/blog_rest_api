@@ -3,10 +3,7 @@ import Comment from './Comment'
 import CommentForm from './CommentForm'
 
 function BlogWithComment(props) {
-    console.log(props)
-
-    const comments = props.post.comments.map(comment => <Comment comment={comment}/>)
-    
+    const comments = props.post.comments.map(comment => <Comment comment={comment} key={comment._id}/>) 
     const commentNumber = props.post.comments.length
 
     return(
@@ -22,7 +19,7 @@ function BlogWithComment(props) {
                     <h1>{commentNumber === 1 ? `${commentNumber} Comment` : `${commentNumber} Comments`}: </h1>
                     {comments}
                     <h1>Leave a new comment: </h1>
-                    <CommentForm />
+                    <CommentForm postid={props.post._id}/>
                 </div>
             </div>
         </React.Fragment>
