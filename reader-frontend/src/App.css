@@ -118,6 +118,16 @@ nav ul li {
   align-items: center;
 }
 
+.blog-post-feature h1 {
+  text-transform: capitalize;
+}
+
+.blog-post-feature .blog-body {
+  width: 100%;
+}
+
+
+
 .blog-post-feature h1, .comments h1 {
   font-family: 'Playfair Display', serif;
   margin-bottom: 10px;
