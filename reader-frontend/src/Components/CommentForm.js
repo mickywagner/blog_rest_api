@@ -16,13 +16,14 @@ function CommentForm(props) {
             })
         }).then(res => res.json()).then(data => console.log(data))
     }
+    
     return(
         <div className='form'>
             <form onSubmit={submitComment}>
                 <label htmlFor="name">Name: </label>
-                <input id="name" type="text"></input>
+                <input id="name" type="text" required></input>
                 <label htmlFor="text">Comment: </label>
-                <textarea id="text"></textarea>
+                <textarea id="text" required></textarea>
                 <button>Post Comment</button>
             </form>
         </div>
