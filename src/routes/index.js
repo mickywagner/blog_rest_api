@@ -1,7 +1,11 @@
-import express from 'express'
+import express, { response } from 'express'
 const router = express.Router()
 
+import passport from 'passport'
 import User from '../models/User'
+
+require('../passport')
+
 import jwt from 'jsonwebtoken'
 
 router.get('/', (req, res) => {
@@ -9,7 +13,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/login', (req, res, next) => {
-    let { email, password } = req.body
+    const { email, password} = req.body
 
     User.findOne({email: email}).exec(function(err, user) {
         if(err || !user) {
@@ -34,5 +38,14 @@ router.post('/login', (req, res, next) => {
     }
     )
 })
+
+router.get('/profile', passport.authenticate('jwt', {session: false}), function(req, res, next) {
+    res.send(`${req.user.username} granted access!`)
+})
+        
+
+    
+
+
 
 export default router
