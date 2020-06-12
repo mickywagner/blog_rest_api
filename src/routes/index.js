@@ -28,7 +28,7 @@ router.post('/login', (req, res, next) => {
                 id: user._id
             }
 
-            const accessToken = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET)
+            const accessToken = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1d'})
             return res.status(200).json({
                 message: 'Login success',
                 user: userForToken,
