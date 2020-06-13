@@ -12,7 +12,7 @@ exports.user_list = (req, res, next) => {
 }
 
 exports.user_create_post = async (req, res, next) => {
-    const emailExists = User.findOne({email: req.body.email})
+    const emailExists = await User.findOne({email: req.body.email})
     
     if(emailExists) return res.status(400).send({message: 'Email already in use'})
     
@@ -46,8 +46,6 @@ exports.user_edit_put = async (req, res, next) => {
         editedUser.password = await bcrypt.hash(req.body.password, 10)
     }
 
-    console.log(editedUser)
-
     User.findByIdAndUpdate(req.params.userId, editedUser, {}, function(err, theuser) {
         if(err) {return next(err)}
         return res.status(200).send(`User edited successful`)
@@ -61,15 +59,4 @@ exports.user_delete_delete = (req, res, next) => {
     })
 }
 
-// exports.user_create_get = (req, res) => {
-//     res.send('GET request for creating user')
-// }
-
-// exports.user_edit_get = (req, res) => {
-//     res.send('GET reuest to edit a user')
-// }
- 
-// exports.user_delete_get = (req, res) => {
-//     res.send('GET request to delete user')
-// }
 
