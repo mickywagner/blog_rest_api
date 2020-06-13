@@ -9,6 +9,7 @@ exports.user_list = (req, res, next) => {
             return res.send(Object.values(users))
         })
 }
+
 exports.user_create_post = async (req, res, next) => {
     const emailExists = User.findOne({email: req.body.email})
     
@@ -26,8 +27,11 @@ exports.user_create_post = async (req, res, next) => {
     })
 }  
 
-exports.user_details = (req, res) => {
-    res.send('GET request for user details')
+exports.user_details = (req, res, next) => {
+    User.findById(req.params.userId, function(err, user) {
+        if(err) return res.status(400).send({message: 'User does not exist'})
+        return res.status(200).send(user)
+    })
 }
 
 exports.user_edit_put = (req, res) => {
