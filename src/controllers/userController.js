@@ -10,7 +10,11 @@ exports.user_list = (req, res, next) => {
         })
 }
 exports.user_create_post = async (req, res, next) => {
-   const user =  await new User({
+    const emailExists = User.findOne({email: req.body.email})
+    
+    if(emailExists) return res.status(400).send({message: 'Email already in use'})
+    
+    const user =  await new User({
        email: req.body.email, 
        username: req.body.username, 
        password: req.body.password
