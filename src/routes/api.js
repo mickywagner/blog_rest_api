@@ -39,7 +39,7 @@ router.put('/posts/:postId/comments/:commentId', verifyToken, commentController.
 router.delete('/posts/:postId/comments/:commentId', verifyToken, commentController.comments_delete_delete)
 
 
-// USER ROUTES 
+// USER ROUTES -- work
 
 router.get('/users', userController.user_list)
 

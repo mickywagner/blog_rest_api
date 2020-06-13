@@ -30,6 +30,10 @@ router.post('/login', async (req, res, next) => {
 
 })
 
+router.get('/logout', function(req, res){
+    req.logout();
+    return res.send('Log out successful')
+});
         
 
     
