@@ -16,7 +16,7 @@ exports.posts_create_post = (req, res, next) => {
     const blog = new BlogPost(
         {
             title: req.body.title,
-            author: '5edacb0b04c59ad30834d6bd',
+            author: req.user._id,
             timestamp: Date.now(),
             text: req.body.text,
             isPublished: req.body.isPublished
