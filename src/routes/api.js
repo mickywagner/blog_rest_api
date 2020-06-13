@@ -16,7 +16,7 @@ router.get('/posts', blogPostController.posts_list)
 
 router.get('/posts/:postId', blogPostController.posts_details)
 
-// BLOG POST - PROTECTED ROUTES
+// BLOG POST - PROTECTED ROUTES -- work
 
 router.post('/posts', verifyToken, blogPostController.posts_create_post)
 
@@ -33,7 +33,7 @@ router.post('/posts/:postId/comments', commentController.comments_create_post)
 
 router.get('/posts/:postId/comments/:commentId', commentController.comment_details)
 
-// COMMENT PROTECTED ROUTES
+// COMMENT PROTECTED ROUTES -- work
 router.put('/posts/:postId/comments/:commentId', verifyToken, commentController.comments_edit_put)
 
 router.delete('/posts/:postId/comments/:commentId', verifyToken, commentController.comments_delete_delete)

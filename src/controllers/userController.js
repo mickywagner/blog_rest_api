@@ -38,8 +38,11 @@ exports.user_edit_put = (req, res) => {
     res.send('PUT request to edit user')
 }
 
-exports.user_delete_delete = (req, res) => {
-    res.send('DELETE request to delete user')
+exports.user_delete_delete = (req, res, next) => {
+    User.findByIdAndDelete(req.params.userId, function(err, user) {
+        if(err) return next(err)
+        res.status(200).send({message: `${user} was deleted`})
+    })
 }
 
 // exports.user_create_get = (req, res) => {
