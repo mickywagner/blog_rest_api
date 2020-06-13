@@ -12,34 +12,27 @@ router.get('/', (req, res) => {
     res.redirect('/api')
 })
 
-router.post('/login', (req, res, next) => {
-    const { email, password} = req.body
-
-    User.findOne({email: email}).exec(function(err, user) {
-        if(err || !user) {
-            return res.status(401).json({
-                message: 'Authorization fail'
-            })
-        }
-
-        if(user.password === password) {
-            const userForToken = {
-                username: user.username,
-                id: user._id
+router.post('/login', async (req, res, next) => {
+    passport.authenticate('login', async (err, user, info) => {
+        try {
+            if(err || !user) {
+                console.log(err)
+                return res.status(400).send({message: 'Incorrect username or password'})
             }
-
-            const accessToken = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1d'})
-            return res.status(200).json({
-                message: 'Login success',
-                user: userForToken,
-                accessToken: accessToken
+            req.login(user, { session: false }, async (error) => {
+                if(error) return next(error)
+                const userForToken = { id: user._id, email: user.email}
+                const token = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d'})
+                return res.status(200).json({message: 'Login successful', token, userForToken})
             })
+        } catch(error) {
+            return next(error)
         }
-    }
-    )
+    }) (req, res, next)
+
 })
 
-router.get('/profile', passport.authenticate('jwt', {session: false}), function(req, res, next) {
+router.get('/profile', passport.authenticate('jwt', { session: false }), function(req, res, next) {
     res.send(`${req.user.username} granted access!`)
 })
         
