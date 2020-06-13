@@ -52,7 +52,7 @@ exports.posts_edit_put = (req, res, next) => {
     
     BlogPost.findByIdAndUpdate(req.params.postId, editedBlog, {}, function(err, thepost) {
         if(err) { return next(err)}
-        return res.send(thepost)
+        return res.status(200).send('Blog post edited')
     })
 }
 

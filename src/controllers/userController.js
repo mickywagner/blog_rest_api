@@ -1,12 +1,13 @@
 import 'dotenv/config'
 import User from '../models/User'
 
+import bcrypt from 'bcryptjs'
 
 exports.user_list = (req, res, next) => {
     User.find()
         .exec(function(err, users) {
             if(err) { return next(err)}
-            return res.send(Object.values(users))
+            return res.status(200).send(Object.values(users))
         })
 }
 
@@ -34,8 +35,23 @@ exports.user_details = (req, res, next) => {
     })
 }
 
-exports.user_edit_put = (req, res) => {
-    res.send('PUT request to edit user')
+exports.user_edit_put = async (req, res, next) => {
+    const editedUser = new User({
+        _id: req.params.userId,
+        username: req.body.username,
+        email: req.body.email,
+    })
+
+    if(req.body.password) {
+        editedUser.password = await bcrypt.hash(req.body.password, 10)
+    }
+
+    console.log(editedUser)
+
+    User.findByIdAndUpdate(req.params.userId, editedUser, {}, function(err, theuser) {
+        if(err) {return next(err)}
+        return res.status(200).send(`User edited successful`)
+    })
 }
 
 exports.user_delete_delete = (req, res, next) => {
