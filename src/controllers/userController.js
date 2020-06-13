@@ -9,14 +9,18 @@ exports.user_list = (req, res, next) => {
             return res.send(Object.values(users))
         })
 }
-exports.user_create_post = (req, res) => {
-    let user = new User(
-        {
-            
-        }
-    )
-    res.send('POST request to create user')
-}
+exports.user_create_post = async (req, res, next) => {
+   const user =  await new User({
+       email: req.body.email, 
+       username: req.body.username, 
+       password: req.body.password
+    })
+
+    user.save(function(err, user) {
+        if(err) return next(err)
+        return res.send(user)
+    })
+}  
 
 exports.user_details = (req, res) => {
     res.send('GET request for user details')
