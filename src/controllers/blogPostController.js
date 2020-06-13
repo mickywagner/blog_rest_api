@@ -18,7 +18,8 @@ exports.posts_create_post = (req, res, next) => {
             title: req.body.title,
             author: '5edacb0b04c59ad30834d6bd',
             timestamp: Date.now(),
-            text: req.body.text
+            text: req.body.text,
+            isPublished: req.body.isPublished
         }
     )
     blog.save()
@@ -67,15 +68,3 @@ exports.posts_delete_delete = (req, res, next) => {
             
 }
 
-
-// exports.posts_create_get = (req, res) => {
-//     res.send('GET request for creating a new blog post')
-// }
-
-// exports.posts_edit_get = (req, res) => {
-//     res.send('GET request to edit a blog post')
-// }
-
-// exports.posts_delete_get = (req, res) => {
-//     res.send('GET request to delete blog post')
-// }

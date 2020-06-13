@@ -2,9 +2,7 @@ import express, { response } from 'express'
 const router = express.Router()
 
 import passport from 'passport'
-import User from '../models/User'
-
-require('../passport')
+import '../passport'
 
 import jwt from 'jsonwebtoken'
 
@@ -32,9 +30,6 @@ router.post('/login', async (req, res, next) => {
 
 })
 
-router.get('/profile', passport.authenticate('jwt', { session: false }), function(req, res, next) {
-    res.send(`${req.user.username} granted access!`)
-})
         
 
     

@@ -1,6 +1,11 @@
 import express from 'express'
 const router = express.Router()
 
+import passport from 'passport'
+import '../passport'
+
+const verifyToken = passport.authenticate('jwt', {session: false})
+
 import blogPostController from '../controllers/blogPostController'
 import commentController from '../controllers/commentController'
 import userController from '../controllers/userController'
@@ -9,17 +14,15 @@ import userController from '../controllers/userController'
 
 router.get('/posts', blogPostController.posts_list)
 
-router.post('/posts', blogPostController.posts_create_post)
-
 router.get('/posts/:postId', blogPostController.posts_details)
 
-router.put('/posts/:postId', blogPostController.posts_edit_put)
+// BLOG POST - PROTECTED ROUTES
 
-router.delete('/posts/:postId', blogPostController.posts_delete_delete)
+router.post('/posts', verifyToken, blogPostController.posts_create_post)
 
-// router.get('/posts', blogPostController.posts_create_get)
-// router.get('/posts/:id', blogPostController.posts_edit_get)
-// router.get('/posts/:id', blogPostController.posts_delete_get)
+router.put('/posts/:postId',  verifyToken, blogPostController.posts_edit_put)
+
+router.delete('/posts/:postId', verifyToken, blogPostController.posts_delete_delete)
 
 
 // COMMENT ROUTES
@@ -30,31 +33,24 @@ router.post('/posts/:postId/comments', commentController.comments_create_post)
 
 router.get('/posts/:postId/comments/:commentId', commentController.comment_details)
 
-router.put('/posts/:postId/comments/:commentId', commentController.comments_edit_put)
+// COMMENT PROTECTED ROUTES
+router.put('/posts/:postId/comments/:commentId', verifyToken, commentController.comments_edit_put)
 
-router.delete('/posts/:postId/comments/:commentId', commentController.comments_delete_delete)
-
-// router.get('/posts/:postId/comments', commentController.comments_create_get)
-// router.get('/posts/:postId/comments/:id', commentController.comments_edit_get)
-// router.get('/posts/:postId/comments/:commentId', commentController.comments_delete_get)
+router.delete('/posts/:postId/comments/:commentId', verifyToken, commentController.comments_delete_delete)
 
 
-
-// USER ROUTES
+// USER ROUTES 
 
 router.get('/users', userController.user_list)
 
-router.post('/users', userController.user_create_post)
+router.get('/users/:userId', verifyToken, userController.user_details)
 
-router.get('/users/:userId', userController.user_details)
+router.post('/users', verifyToken, userController.user_create_post)
 
-router.put('/users/:userId', userController.user_edit_put)
+router.put('/users/:userId', verifyToken, userController.user_edit_put)
 
-router.delete('/users/:userId', userController.user_delete_delete)
+router.delete('/users/:userId', verifyToken, userController.user_delete_delete)
 
-// router.get('/users', userController.user_create_get)
-// router.get('/users/:userId', userController.user_edit_get)
-// router.get('/users/:userId', userController.user_delete_get)
 
 
 export default router
