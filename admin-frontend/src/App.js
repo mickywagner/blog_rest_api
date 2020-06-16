@@ -20,5 +20,3 @@ function App() {
 export default App;
 
 
-
-// Set up Pages and Routes

@@ -2,15 +2,15 @@ import React from 'react';
 
 function Login() {
     return(
-        <div>
-            <h1>Please Log In to Enter Admin Site</h1>
-            <form>
-                <label htmlFor="email">Email:</label>
-                <input id="email" name="email" type="email"></input>
-                <label htmlFor="password">Password:</label>
-                <input id="password" name="password" type="password"></input>
-                <button>Log In</button>
-            </form>
+        <div className="login">
+            <div className="form"> 
+                <h1>Blog Login </h1>
+                <form onSubmit={console.log('POST REQUEST TO /LOGIN')}> 
+                    <input id="email" name="email" type="email" required placeholder="Email"></input>
+                    <input id="password" name="password" type="password" required placeholder="Password"></input>
+                    <button>Log In</button>
+                </form>
+            </div>
         </div>
     )
 }
