@@ -7,7 +7,7 @@ function BlogPage({match}) {
     const { isLoading, setIsLoading } = useContext(AppContext)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/api/posts/${match.params.id}`)
+        fetch(`/api/posts/${match.params.id}`)
             .then(response => response.json())
             .then(json => {
                 setBlogPost(json[0])

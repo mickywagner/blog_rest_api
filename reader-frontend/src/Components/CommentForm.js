@@ -5,7 +5,7 @@ function CommentForm(props) {
     function submitComment(e) {
         const {name, text} = e.target
     
-        fetch(`http://localhost:3001/api/posts/${props.postid}/comments`, {
+        fetch(`/api/posts/${props.postid}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'

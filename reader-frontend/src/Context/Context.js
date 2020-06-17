@@ -7,7 +7,7 @@ function AppContextProvider({children}) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/posts')
+        fetch('/api/posts')
           .then(response => response.json())
           .then(json => {
             const publishedPosts = json.filter(post => post.isPublished === true) 

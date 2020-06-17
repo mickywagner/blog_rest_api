@@ -4,6 +4,7 @@ const AppContext = React.createContext()
 
 function AppContextProvider({children}) {
     const [isLoggedIn, setIsLoggedIn]= useState(false)
+    const [message, setMessage] = useState('')
 
     const login = (e) => {
         e.preventDefault()
@@ -17,14 +18,21 @@ function AppContextProvider({children}) {
                 password: password.value
             })
         }
+
         fetch('/login', requestOptions)
             .then(response => response.json())
-            .then(data => console.log(data))
-    
+            .then(data => {
+                console.log(data)
+                setMessage(data.message)
+                if(data.message === "Login successful") {
+                    setIsLoggedIn(true)
+                }
+            })
+        
     }
 
     return(
-        <AppContext.Provider value={{isLoggedIn, setIsLoggedIn, login}}>
+        <AppContext.Provider value={{isLoggedIn, setIsLoggedIn, login, message}}>
             {children}
         </AppContext.Provider>
     )

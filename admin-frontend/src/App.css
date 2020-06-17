@@ -43,6 +43,11 @@
     flex-direction: column;
 }
 
+.form p {
+    margin-bottom: 7px;
+    font-style: italic;
+}
+
 .form form input, .form form button {
     font-size: 1em;
     padding: 5px;
