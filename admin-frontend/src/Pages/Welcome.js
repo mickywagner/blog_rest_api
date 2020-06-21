@@ -14,14 +14,16 @@ function Welcome() {
 
     return(
         <div className="main">
-            <h1>Welcome To Your Blog Dashboard</h1>
-            <ul>
-                <li>See user front-end</li>
-                <li>Published posts</li>
-                <li>Unpublished posts</li>
-                <li>All comments</li>
-                <li>Create a new post</li>
-            </ul>
+            <nav>
+                <a>Create a New Post</a>
+                <a>View All Posts</a>
+                <a>Comments</a>
+                <a>Log Out</a>
+            </nav>
+            <div className="content">
+                <h1>Welcome To Your Blog Dashboard</h1>
+            </div>
+            
         </div>
     )
 }
