@@ -27,6 +27,8 @@ router.delete('/posts/:postId', verifyToken, blogPostController.posts_delete_del
 
 // COMMENT ROUTES
 
+router.get('/comments', commentController.all_comments)
+
 router.get('/posts/:postId/comments', commentController.comments_list)
 
 router.post('/posts/:postId/comments', commentController.comments_create_post)

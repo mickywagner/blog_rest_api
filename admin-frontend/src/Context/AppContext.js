@@ -7,6 +7,7 @@ function AppContextProvider({children}) {
     const [message, setMessage] = useState('')
     const [user, setUser] = useState('')
     const [allPosts, setAllPosts] = useState([])
+   
 
     const apiURL = 'http://localhost:3001/api'
 

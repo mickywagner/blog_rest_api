@@ -2,12 +2,23 @@ import BlogPost from '../models/BlogPost'
 import Comment from '../models/Comment'
 import User from '../models/User'
 
+// /comments
+
+exports.all_comments = (req, res, next) => {
+    Comment.find()
+           .populate('post')
+           .exec(function(err, comments) {
+               if(err) { return next(err) }
+               return res.json(comments)
+           })
+}
+
 // posts/postId/comments
 exports.comments_list = (req, res, next) => {
     Comment.find({post: req.params.postId})
            .exec(function(err, comments) {
                if(err) { return next(err)}
-               if(comments.lenght < 1) {
+               if(comments.length < 1) {
                    return res.send('No comments on this post')
                }
                return res.send(Object.values(comments))
