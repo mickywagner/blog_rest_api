@@ -7,7 +7,7 @@ function AppContextProvider({children}) {
     const [message, setMessage] = useState('')
     const [user, setUser] = useState('')
     const [allPosts, setAllPosts] = useState([])
-   
+    const [allComments, setAllComments] = useState([])
 
     const apiURL = 'http://localhost:3001/api'
 
@@ -39,17 +39,28 @@ function AppContextProvider({children}) {
         const response = await fetch(`${apiURL}/posts`)
         const data = await response.json()
         setAllPosts(data)
+        console.log(data)
+    }
+
+    const getAllComments = async () => {
+        const response = await fetch(`${apiURL}/comments`)
+        const data = await response.json()
+        setAllComments(data)
+        console.log(data)
     }
 
     return(
         <AppContext.Provider value={{
-            isLoggedIn, 
+            login,
             setIsLoggedIn, 
-            login, 
+            isLoggedIn, 
             message, 
             getAllPosts, 
+            setAllPosts,
             allPosts, 
-            setAllPosts
+            getAllComments,
+            setAllComments,
+            allComments
         }}>
             {children}
         </AppContext.Provider>
