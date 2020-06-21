@@ -88,3 +88,11 @@
     height: 100vh;
 }
 
+.content nav {
+    background: none;
+    flex-direction: row;
+}
+
+nav a {
+    padding: 10px 10px;
+}
