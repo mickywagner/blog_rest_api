@@ -5,6 +5,10 @@ const AppContext = React.createContext()
 function AppContextProvider({children}) {
     const [isLoggedIn, setIsLoggedIn]= useState(false)
     const [message, setMessage] = useState('')
+    const [user, setUser] = useState('')
+    const [allPosts, setAllPosts] = useState([])
+
+    const apiURL = 'http://localhost:3001/api'
 
     const login = (e) => {
         e.preventDefault()
@@ -27,12 +31,25 @@ function AppContextProvider({children}) {
                 if(data.message === "Login successful") {
                     setIsLoggedIn(true)
                 }
-            })
-        
+            })  
+    }
+
+    const getAllPosts = async () => {
+        const response = await fetch(`${apiURL}/posts`)
+        const data = await response.json()
+        setAllPosts(data)
     }
 
     return(
-        <AppContext.Provider value={{isLoggedIn, setIsLoggedIn, login, message}}>
+        <AppContext.Provider value={{
+            isLoggedIn, 
+            setIsLoggedIn, 
+            login, 
+            message, 
+            getAllPosts, 
+            allPosts, 
+            setAllPosts
+        }}>
             {children}
         </AppContext.Provider>
     )
