@@ -31,6 +31,7 @@ function AppContextProvider({children}) {
                 setMessage(data.message)
                 if(data.message === "Login successful") {
                     setIsLoggedIn(true)
+                    setUser(data.userForToken.username)
                 }
             })  
     }
@@ -52,6 +53,7 @@ function AppContextProvider({children}) {
     return(
         <AppContext.Provider value={{
             login,
+            user,
             setIsLoggedIn, 
             isLoggedIn, 
             message, 

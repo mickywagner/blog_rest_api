@@ -1,23 +1,26 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
+import {AppContext} from '../Context/AppContext'
 
 import AllPosts from './AllPosts'
 import AllComments from './Comments';
 import CreateNewPost from './CreateNewPost'
 
 function Welcome() {
+    const {user} = useContext(AppContext)
+
     return(
         <div className="main">
             <nav className="side-nav">
-                <Link to="/admin/create-post"><a>Create a New Post</a></Link>
-                <Link to="/admin/posts"><a>View All Posts</a></Link>
-                <Link to="/admin/comments"><a>Comments</a></Link>
+                <Link to="/admin/create-post">Create a New Post</Link>
+                <Link to="/admin/posts">View All Posts</Link>
+                <Link to="/admin/comments">Comments</Link>
                 <a>Log Out</a>
             </nav>
             <div className="content">
                 <Switch>
                     <Route exact path="/admin">
-                        <h1>Welcome To Your Blog Dashboard</h1>
+                        <h1>Welcome {user}! Blog Dashboard</h1>
                     </Route>
                     <Route path="/admin/posts" component={AllPosts}/>
     

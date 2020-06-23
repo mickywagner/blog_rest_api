@@ -19,7 +19,7 @@ router.post('/login', async (req, res, next) => {
             }
             req.login(user, { session: false }, async (error) => {
                 if(error) return next(error)
-                const userForToken = { id: user._id, email: user.email}
+                const userForToken = { id: user._id, username: user.username}
                 const token = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d'})
                 return res.status(200).json({message: 'Login successful', token, userForToken})
             })
