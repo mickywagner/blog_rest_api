@@ -18,7 +18,7 @@ function App() {
           {isLoggedIn ? <Redirect to="/admin" /> : <Login />}
         </Route>
         <Route path="/admin">
-          {isLoggedIn ? <Welcome /> : <Login />}
+          <Welcome />
         </Route>
       </Switch>  
     </div>

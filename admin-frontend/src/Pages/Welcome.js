@@ -3,7 +3,7 @@ import {Link, Route, Switch} from 'react-router-dom';
 import {AppContext} from '../Context/AppContext'
 
 import AllPosts from './AllPosts'
-import AllComments from './Comments';
+import AllComments from './AllComments';
 import CreateNewPost from './CreateNewPost'
 
 function Welcome() {
