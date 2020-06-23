@@ -1,17 +1,9 @@
-import React, {useContext, useEffect} from 'react';
-import {AppContext} from '../Context/AppContext'
+import React from 'react';
 
 import BlogListItem from './BlogList'
-import { PromiseProvider } from 'mongoose';
 
-function BlogTable() {
-    const { getAllPosts, allPosts } = useContext(AppContext)
-
-    useEffect(() => {
-        getAllPosts()
-    }, [])
-
-    const posts = allPosts.length > 1 ? allPosts.map(post => 
+function BlogTable(props) {
+    const posts = props.posts.length > 1 ? props.posts.map(post => 
         <BlogListItem 
             key={post._id} 
             title={post.title} 
