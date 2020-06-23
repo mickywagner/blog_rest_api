@@ -1,10 +1,14 @@
 import React from 'react';
+import {AppContext} from '../Context/AppContext'
 
 function BlogListItem(props) {
     return(
-        <li>
-            {props.title}
-        </li>
+        <tr>
+            <td>{props.title}</td>
+            <td>{props.date}</td>
+            <td>{props.comments.length}</td>
+        </tr>
+       
     )
 }
 

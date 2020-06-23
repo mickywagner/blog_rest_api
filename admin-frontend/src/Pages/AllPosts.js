@@ -1,21 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import {AppContext} from '../Context/AppContext'
+import React from 'react';
 import {Link, Route, Switch} from 'react-router-dom';
 
-import BlogListItem from '../Components/BlogList'
+import BlogTable from '../Components/BlogTable'
 
 function AllPosts() {
-    const { getAllPosts, allPosts } = useContext(AppContext)
-
-    useEffect(() => {
-        getAllPosts()
-    }, [])
-
-
-
-    const posts = allPosts.length > 1 ? allPosts.map(post => <BlogListItem key={post._id} title={post.title} />) : null
-    const publishedPosts = allPosts.length > 1 ? allPosts.filter(post => post.isPublished).map(post => <BlogListItem key={post._id} title={post.title} />)  : null
-    const unpublishedPosts = allPosts.length > 1 ? allPosts.filter(post => !post.isPublished).map(post => <BlogListItem key={post._id} title={post.title} />) : null
     
     return(
         <React.Fragment >
@@ -28,13 +16,13 @@ function AllPosts() {
             <div className="blog-list">
             <Switch>
                 <Route exact path="/admin/posts">
-                   {posts}
+                    <BlogTable />
                 </Route>
                 <Route path="/admin/posts/published">
-                   {publishedPosts}
+                   <BlogTable />
                 </Route>
                 <Route path="/admin/posts/unpublished">
-                    {unpublishedPosts}
+                    <BlogTable />
                 </Route>
             </Switch>
             </div>
