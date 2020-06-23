@@ -14,11 +14,9 @@ function BlogTable(props) {
     return(
         <table>
             <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Date Created</th> 
-                    <th>Comments</th>
-                </tr>
+                <th>Title</th>
+                <th>Date Created</th> 
+                <th>Comments</th>
             </thead>
             {posts}
         </table>
