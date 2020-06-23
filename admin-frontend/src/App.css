@@ -78,14 +78,18 @@
     ;
 }
 
-.main nav {
+.content {
+    grid-area: "c";
+}
+
+.side-nav {
     grid-area: "n";
+    height: 100vh;
     display: flex;
     flex-direction: column;
     background: rgba(255, 255, 255, 0.459);
     padding: 10px;
     margin-right: 20px;
-    height: 100vh;
 }
 
 .content nav {
@@ -93,6 +97,7 @@
     flex-direction: row;
 }
 
+
 nav a {
-    padding: 10px 10px;
+    margin: 10px 10px 10px 0;
 }
