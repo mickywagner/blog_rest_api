@@ -131,4 +131,23 @@ tr:hover {
     background: rgba(255, 255, 255, 0.185);
 }
 
+.content form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.content input, textarea {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.content textarea {
+    height: 400px;
+}
+
+.content form button {
+    width: 20%;
+    align-self: flex-end;
+}
 

@@ -3,6 +3,7 @@ import {Link, Route, Switch} from 'react-router-dom';
 
 import AllPosts from './AllPosts'
 import AllComments from './Comments';
+import CreateNewPost from './CreateNewPost'
 
 function Welcome() {
     return(
@@ -18,12 +19,11 @@ function Welcome() {
                     <Route exact path="/admin">
                         <h1>Welcome To Your Blog Dashboard</h1>
                     </Route>
-                    <Route path="/admin/posts">
-                        <AllPosts />
-                    </Route>
-                    <Route path="/admin/comments">
-                        <AllComments />
-                    </Route>
+                    <Route path="/admin/posts" component={AllPosts}/>
+    
+                    <Route path="/admin/comments" component={AllComments}/>
+                    <Route path="/admin/create-post" component={CreateNewPost}/>
+
                 </Switch>
             </div>
             
