@@ -27,7 +27,6 @@ function AppContextProvider({children}) {
         fetch('/login', requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 setMessage(data.message)
                 if(data.message === "Login successful") {
                     setIsLoggedIn(true)
@@ -40,14 +39,12 @@ function AppContextProvider({children}) {
         const response = await fetch(`${apiURL}/posts`)
         const data = await response.json()
         setAllPosts(data)
-        console.log(data)
     }
 
     const getAllComments = async () => {
         const response = await fetch(`${apiURL}/comments`)
         const data = await response.json()
         setAllComments(data)
-        console.log(data)
     }
 
     return(
