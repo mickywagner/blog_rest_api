@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import './App.css';
-import {Route, Switch} from "react-router-dom"
+import {Route, Switch, Redirect} from "react-router-dom"
 
 import {Login, Welcome} from './Pages/'
 import { AppContext } from './Context/AppContext';
@@ -16,10 +16,11 @@ function App() {
     <div className="App">
       <Switch>
         <Route path="/login">
-          {isLoggedIn ? <Welcome /> : <Login />}
+          {isLoggedIn ? <Redirect to="/admin" /> : <Login />}
         </Route>
         <Route path="/admin">
-          {isLoggedIn ? <Welcome /> : <Login />}
+          <Welcome />
+          {/* {isLoggedIn ? <Welcome /> : <Login />} */}
         </Route>
       </Switch>  
     </div>

@@ -15,7 +15,7 @@ function Welcome() {
                 if(res.status === 200) {
                     setUser('')
                     setIsLoggedIn(false)
-                    return <Redirect to='/' />
+                    return <Redirect to="/login" />
                 }
             })
             

@@ -80,17 +80,49 @@
 
 .content {
     grid-area: "c";
-    min-height: 100vh;
+    height: 100vh;
+    overflow: auto;
 }
 
 .side-nav {
     grid-area: "n";
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.459);
+    background: rgba(255, 255, 255, 0.733);
     padding: 10px;
     margin-right: 20px;
+}
+
+.side-nav a {
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(10, 66, 68);
+}
+
+.side-nav a:hover {
+    text-decoration: underline;
+    color: rgb(27, 188, 194);
+}
+
+.side-nav button {
+    color: white;
+    background: rgb(27, 188, 194);
+    font-size: 1em;
+    margin-top: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px gray;
+}
+
+.side-nav button:hover {
+    background: rgb(10, 66, 68);
+}
+
+.side-nav button:focus {
+    outline: none;
 }
 
 .content nav {
