@@ -2,18 +2,19 @@ import React, {useState} from 'react';
 
 import { Editor } from '@tinymce/tinymce-react';
 
+
 function CreateNewPost() {
     const [content, setContent] = useState('')
 
     const submitBlog = (e) => {
         e.preventDefault()
-        // const serialized = tinymce.util.JSON.serialize(content)
-        // console.log(serialized)
+        
     }
 
     const handleEditorChange = (content, editor) => {
         console.log('Content was updated:', content);
         setContent(content)
+    
     }
 
     return(
@@ -40,6 +41,7 @@ function CreateNewPost() {
                         onEditorChange={handleEditorChange}
                         value={content}
                     />
+                    <button>Submit Post</button>
                 </form>
             </div>
             
