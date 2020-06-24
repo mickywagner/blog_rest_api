@@ -14,6 +14,7 @@ function BlogWithComment(props) {
                     <h1>{props.post.title}</h1>
                     <p>By: {props.post.author.username}</p> 
                     <p>{props.post.text}</p> 
+
                 </div>
                 <div className="comments">
                     <h1>{commentNumber === 1 ? `${commentNumber} Comment` : `${commentNumber} Comments`}: </h1>

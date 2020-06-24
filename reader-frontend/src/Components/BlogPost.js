@@ -4,6 +4,7 @@ import { appContext, AppContext } from '../Context/Context'
 import { Link } from 'react-router-dom'
 
 function BlogPost({post}) {
+
     return(
         <div className='blog-post'>
             
@@ -11,7 +12,7 @@ function BlogPost({post}) {
             
             <div className='blog-post-body'>
                 <p className="author">Posted by {post.author.username} at {post.date}</p>
-                <p>{post.text}</p>
+                {post.text}
             </div>
 
             <Link to={`/blog/${post._id}`}>

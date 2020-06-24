@@ -11,7 +11,6 @@ function CreateNewPost() {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlZTU2M2M1YzY1ZjdmNjQ5NmJhZWIxMyIsInVzZXJuYW1lIjoiU2NhcmxldHQiLCJpYXQiOjE1OTI5NjA3NDQsImV4cCI6MTU5MzA0NzE0NH0.yW86EWszvpiOCglRlsKq6-Zo0_S7A0q17vIP79ik-cI'
             }, 
             body: JSON.stringify({
                 "title": title.value,

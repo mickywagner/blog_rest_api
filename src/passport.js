@@ -7,7 +7,15 @@ const ExtractJwt = require('passport-jwt').ExtractJwt;
 import User from './models/User'
 
 const opts = {}
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken()
+opts.jwtFromRequest = function cookieExtractor(req) {
+    var token = null;
+    if (req && req.cookies)
+    {
+        token = req.cookies['token'];
+    }
+    return token;
+};
+
 opts.secretOrKey = process.env.ACCESS_TOKEN_SECRET
 
 passport.use(new JwtStrategy(opts, (jwt_payload, done) => {
