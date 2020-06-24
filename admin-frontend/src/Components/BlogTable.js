@@ -8,7 +8,10 @@ function BlogTable(props) {
             key={post._id} 
             title={post.title} 
             date={post.date} 
-            comments={post.comments}/>
+            comments={post.comments}
+            likes={post.likes}
+            dislikes={post.dislikes}
+        />
     ) : null
     
     return(
@@ -17,6 +20,8 @@ function BlogTable(props) {
                 <th>Title</th>
                 <th>Date Created</th> 
                 <th>Comments</th>
+                <th>Likes</th>
+                <th>Dislikes</th>
             </thead>
             {posts}
         </table>

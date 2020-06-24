@@ -7,6 +7,8 @@ function BlogListItem(props) {
             <td>{props.title}</td>
             <td>{props.date}</td>
             <td>{props.comments.length}</td>
+            <td>{props.likes}</td>
+            <td>{props.dislikes}</td>
         </tr>
        
     )
