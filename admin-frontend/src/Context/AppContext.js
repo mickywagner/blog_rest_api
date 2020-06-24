@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ExtractJwt } from 'passport-jwt';
 
 const AppContext = React.createContext()
 
@@ -9,7 +8,6 @@ function AppContextProvider({children}) {
     const [user, setUser] = useState('')
     const [allPosts, setAllPosts] = useState([])
     const [allComments, setAllComments] = useState([])
-    const [jwt, setJWT] = useState('')
 
     const apiURL = 'http://localhost:3001/api'
 
@@ -34,7 +32,6 @@ function AppContextProvider({children}) {
                     setIsLoggedIn(true)
                     setMessage('')
                     setUser(data.userForToken.username)
-                    setJWT(data.token)
                 }
             })  
     }

@@ -1,6 +1,6 @@
 import React, {useContext, useEffect} from 'react';
 import './App.css';
-import {Route, Switch, Redirect} from "react-router-dom"
+import {Route, Switch} from "react-router-dom"
 
 import {Login, Welcome} from './Pages/'
 import { AppContext } from './Context/AppContext';
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/">
+        <Route path="/login">
           {isLoggedIn ? <Welcome /> : <Login />}
         </Route>
         <Route path="/admin">

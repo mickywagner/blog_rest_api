@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import { AppContext } from '../Context/AppContext';
 
 function Login() {  
-    const {setIsLoggedIn, login, message} = useContext(AppContext)
+    const {login, message} = useContext(AppContext)
     
     return(
         <div className="login">
