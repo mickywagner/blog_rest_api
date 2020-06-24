@@ -19,10 +19,11 @@ function BlogTable(props) {
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Comments</th>
                     <th>Date Created</th> 
+                    <th>Comments</th>
                     <th>Likes</th>
                     <th>Dislikes</th>
+
                 </tr>
             </thead>
             <tbody>

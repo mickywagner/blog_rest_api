@@ -92,6 +92,7 @@
     background: rgba(255, 255, 255, 0.733);
     padding: 10px;
     margin-right: 20px;
+    max-width: 200px;
 }
 
 .side-nav a {
@@ -161,6 +162,23 @@ tr td:first-of-type {
 
 tr:hover {
     background: rgba(255, 255, 255, 0.185);
+}
+
+tr:hover td span {
+    opacity: 1;
+}
+
+td span {
+    font-size: 0.5em;
+    margin-left: 10px;
+    color:  rgb(20, 121, 124);
+    opacity: 0;
+}
+
+
+td span a:hover {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .content form {

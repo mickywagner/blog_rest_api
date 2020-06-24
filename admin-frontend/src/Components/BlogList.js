@@ -3,7 +3,11 @@ import React from 'react';
 function BlogListItem(props) {
     return(
         <tr>
-            <td>{props.title}</td>
+            <td>{props.title}
+                <span>
+                    <a>Edit</a> | <a>Delete</a>
+                </span>
+            </td>
             <td>{props.date}</td>
             <td>{props.comments.length}</td>
             <td>{props.likes}</td>
