@@ -11,6 +11,7 @@ function BlogTable(props) {
             comments={post.comments}
             likes={post.likes}
             dislikes={post.dislikes}
+            id={post._id}
         />
     ) : null
     

@@ -1,11 +1,17 @@
 import React from 'react';
 
 function BlogListItem(props) {
+    const deleteBlog = () => {
+        fetch(`/api/posts/${props.id}`, {
+            method: 'DELETE'
+        }).then(res => res.json())
+    }
+
     return(
-        <tr>
+        <tr onClick={() => console.log(props.id)}>
             <td>{props.title}
                 <span>
-                    <a>Edit</a> | <a>Delete</a>
+                    <p>Edit</p> | <p onClick={deleteBlog}>Delete</p>
                 </span>
             </td>
             <td>{props.date}</td>

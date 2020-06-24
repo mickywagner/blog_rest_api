@@ -175,8 +175,12 @@ td span {
     opacity: 0;
 }
 
+td span p {
+    display: inline;
+}
 
-td span a:hover {
+
+td span p:hover {
     cursor: pointer;
     text-decoration: underline;
 }
