@@ -21,11 +21,16 @@ function AllComments() {
             <div className="blog-list">
                 <table>
                     <thead>
-                        <th>Comment</th>
-                        <th>Posted By</th>
-                        <th>Post</th>
+                        <tr>
+                            <th>Comment</th>
+                            <th>Posted By</th>
+                            <th>Post</th>
+                        </tr>
                     </thead>
-                    {comments}
+                    <tbody>
+                        {comments}
+                    </tbody>
+                    
                 </table>
                 
             </div>

@@ -17,13 +17,17 @@ function BlogTable(props) {
     return(
         <table>
             <thead>
-                <th>Title</th>
-                <th>Date Created</th> 
-                <th>Comments</th>
-                <th>Likes</th>
-                <th>Dislikes</th>
+                <tr>
+                    <th>Title</th>
+                    <th>Comments</th>
+                    <th>Date Created</th> 
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                </tr>
             </thead>
-            {posts}
+            <tbody>
+                {posts}
+            </tbody>
         </table>
     )
 }
