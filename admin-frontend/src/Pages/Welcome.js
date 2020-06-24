@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
+import {Link, Route, Switch, Redirect} from 'react-router-dom';
 import {AppContext} from '../Context/AppContext'
 
 import AllPosts from './AllPosts'
@@ -7,7 +7,19 @@ import AllComments from './AllComments';
 import CreateNewPost from './CreateNewPost'
 
 function Welcome() {
-    const {user} = useContext(AppContext)
+    const {user, setUser, setIsLoggedIn} = useContext(AppContext)
+
+    const logout = () => {
+        fetch('/logout')
+            .then(res => {
+                if(res.status === 200) {
+                    setUser('')
+                    setIsLoggedIn(false)
+                    return <Redirect to='/' />
+                }
+            })
+            
+    }
 
     return(
         <div className="main">
@@ -15,7 +27,7 @@ function Welcome() {
                 <Link to="/admin/create-post">Create a New Post</Link>
                 <Link to="/admin/posts">View All Posts</Link>
                 <Link to="/admin/comments">Comments</Link>
-                <a>Log Out</a>
+                <button onClick={logout}>Log out</button>
             </nav>
             <div className="content">
                 <Switch>

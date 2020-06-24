@@ -8,14 +8,18 @@ import { AppContext } from './Context/AppContext';
 function App() {
   const {isLoggedIn} = useContext(AppContext)
 
+  useEffect(() => {
+    console.log(isLoggedIn)
+  }, [isLoggedIn])
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          {isLoggedIn ? <Redirect to="/admin" /> : <Login />}
+          {isLoggedIn ? <Welcome /> : <Login />}
         </Route>
         <Route path="/admin">
-          <Welcome />
+          {isLoggedIn ? <Welcome /> : <Login />}
         </Route>
       </Switch>  
     </div>
