@@ -1,7 +1,10 @@
 import React from 'react';
 import BlogForm from '../Components/BlogForm'
+import {useHistory} from 'react-router-dom'
 
 function CreateNewPost() {
+    let history = useHistory()
+
     const submitBlog = (e) => {
         e.preventDefault()
         const {title, content, publish} = e.target
@@ -16,7 +19,10 @@ function CreateNewPost() {
                 "text": content.value,
                 "isPublished": publish.checked
             })
-        }).then(res => res.json()).then(data => console.log(data))
+        }).then(res => res.json()).then(data => {
+            console.log(data)
+            history.push('/admin/posts')
+        })
     }
 
     return(

@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import {AppContext} from '../Context/AppContext'
+import {useHistory} from 'react-router-dom'
 
 import BlogForm from '../Components/BlogForm'
 
 function EditPost(props) {
     const {allPosts} = useContext(AppContext)
     const postID =props.match.params.postId
+
+    let history = useHistory()
 
     const postToEdit = allPosts.find(post => post._id === postID)
 
@@ -23,7 +26,11 @@ function EditPost(props) {
                 "text": content.value,
                 "isPublished": publish.checked
             })
-        }).then(res => res.json()).then(data => console.log(data))
+        }).then(res => res.json()).then(data => {
+            console.log(data)
+            history.push('/admin/posts')
+        }   
+        )
 
     }
 
