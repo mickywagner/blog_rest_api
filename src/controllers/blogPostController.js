@@ -33,7 +33,7 @@ exports.posts_details = (req, res, next) => {
            .populate('comments')
            .exec(function(err, post) {
                if(err) return next(err)
-               return res.send(post)
+               return res.json(post.toJSON())
            })
 }
 
@@ -52,7 +52,7 @@ exports.posts_edit_put = (req, res, next) => {
     
     BlogPost.findByIdAndUpdate(req.params.postId, editedBlog, {}, function(err, thepost) {
         if(err) { return next(err)}
-        return res.status(200).send('Blog post edited')
+        return res.status(200).json(editedBlog.toJSON())
     })
 }
 
