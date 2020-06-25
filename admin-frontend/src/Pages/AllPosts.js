@@ -4,6 +4,7 @@ import {AppContext} from '../Context/AppContext'
 
 import BlogTable from '../Components/BlogTable'
 
+
 function AllPosts() {
     const { getAllPosts, allPosts } = useContext(AppContext)
 
@@ -21,19 +22,21 @@ function AllPosts() {
                 <Link to="/admin/posts">All Posts</Link>
                 <Link to="/admin/posts/published">Published Posts</Link>
                 <Link to="/admin/posts/unpublished">Unpublished Posts</Link>
+                
             </nav>
             <div className="blog-list">
-            <Switch>
-                <Route exact path="/admin/posts">
-                    <BlogTable posts={allPosts} />
-                </Route>
-                <Route path="/admin/posts/published">
-                   <BlogTable posts={publishedPosts}/>
-                </Route>
-                <Route path="/admin/posts/unpublished">
-                    <BlogTable posts={unpublishedPosts}/>
-                </Route>
-            </Switch>
+                <Switch>
+                    <Route exact path="/admin/posts">
+                        <BlogTable posts={allPosts} />
+                    </Route>
+                    <Route path="/admin/posts/published">
+                        <BlogTable posts={publishedPosts} />
+                    </Route>
+                    <Route path="/admin/posts/unpublished">
+                        <BlogTable posts={unpublishedPosts} />
+                    </Route>
+
+                </Switch>
             </div>
         </React.Fragment>
     )
