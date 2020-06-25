@@ -132,8 +132,12 @@ nav ul li {
 
 .blog-post-feature .blog-body {
   width: 100%;
+  margin-bottom: 20px;
 }
 
+.likes {
+  text-align: center;
+}
 
 
 .blog-post-feature h1, .comments h1 {
@@ -145,6 +149,7 @@ nav ul li {
   text-align: justify;
   margin-bottom: 10px;
   line-height: 2em;
+  color: black;
 }
 
 .comments {
@@ -201,6 +206,7 @@ nav ul li {
   background: cornflowerblue;
   border-radius: 10px;
   padding: 20px;
+  margin: 20px 0;
 }
 
 .form form {
