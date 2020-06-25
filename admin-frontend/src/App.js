@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path="/login">
+        <Route exact path="/">
           {isLoggedIn ? <Redirect to="/admin" /> : <Login />}
         </Route>
         <Route path="/admin">

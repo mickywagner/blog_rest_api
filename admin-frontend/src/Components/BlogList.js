@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 function BlogListItem(props) {
     const deleteBlog = () => {
@@ -11,7 +12,7 @@ function BlogListItem(props) {
         <tr onClick={() => console.log(props.id)}>
             <td>{props.title}
                 <span>
-                    <p>Edit</p> | <p onClick={deleteBlog}>Delete</p>
+                    <p><Link to={`/admin/posts/${props.id}/edit`}>Edit</Link></p> | <p onClick={deleteBlog}>Delete</p>
                 </span>
             </td>
             <td>{props.date}</td>

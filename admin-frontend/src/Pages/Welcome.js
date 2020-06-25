@@ -5,6 +5,7 @@ import {AppContext} from '../Context/AppContext'
 import AllPosts from './AllPosts'
 import AllComments from './AllComments';
 import CreateNewPost from './CreateNewPost'
+import EditPost from './EditPost';
 
 function Welcome() {
     const {user, setUser, setIsLoggedIn} = useContext(AppContext)
@@ -34,10 +35,11 @@ function Welcome() {
                     <Route exact path="/admin">
                         <h1>Welcome {user}! Blog Dashboard</h1>
                     </Route>
-                    <Route path="/admin/posts" component={AllPosts}/>
+                    <Route exact path="/admin/posts" component={AllPosts}/>
     
                     <Route path="/admin/comments" component={AllComments}/>
                     <Route path="/admin/create-post" component={CreateNewPost}/>
+                    <Route path="/admin/posts/:postId/edit" component={EditPost}/>
 
                 </Switch>
             </div>

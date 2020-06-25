@@ -33,6 +33,7 @@ router.post('/login', async (req, res, next) => {
 
 router.get('/logout', function(req, res){
     req.logout();
+    res.clearCookie('token')
     return res.send('Log out successful')
 });
         
