@@ -1,11 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {AppContext} from '../Context/AppContext'
+
 import BlogForm from '../Components/BlogForm'
 
-function EditPost() {
+function EditPost(props) {
+    const {allPosts} = useContext(AppContext)
+    const postID =props.match.params.postId
+
+    const postToEdit = allPosts.find(post => post._id === postID)
+
+    const updatePost = (e) => {
+        e.preventDefault()
+        const {title, content, publish} = e.target
+
+        fetch(`/api/posts/${postID}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "title": title.value,
+                "text": content.value,
+                "isPublished": publish.checked
+            })
+        }).then(res => res.json()).then(data => console.log(data))
+
+    }
+
     return(
         <React.Fragment>
             <h1>Edit Post</h1>
-            <BlogForm />
+            <BlogForm post={postToEdit} submitMethod={updatePost}/>
         </React.Fragment>
     )
 }

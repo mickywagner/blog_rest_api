@@ -2,12 +2,28 @@ import React from 'react';
 import BlogForm from '../Components/BlogForm'
 
 function CreateNewPost() {
+    const submitBlog = (e) => {
+        e.preventDefault()
+        const {title, content, publish} = e.target
+
+        fetch(`/api/posts`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            }, 
+            body: JSON.stringify({
+                "title": title.value,
+                "text": content.value,
+                "isPublished": publish.checked
+            })
+        }).then(res => res.json()).then(data => console.log(data))
+    }
 
     return(
         <React.Fragment>
             <h1>Create a New Post</h1>
             <div className="editor">
-                <BlogForm />
+                <BlogForm submitMethod={submitBlog}/>
             </div>
             
         </React.Fragment>
