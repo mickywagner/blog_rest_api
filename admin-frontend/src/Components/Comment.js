@@ -10,8 +10,6 @@ function Comment(props) {
         } else {
             return 
         }
-        
-        
     }
 
     return(
