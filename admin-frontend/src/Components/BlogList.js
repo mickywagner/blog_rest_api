@@ -5,7 +5,9 @@ function BlogListItem(props) {
     const deleteBlog = () => {
         fetch(`/api/posts/${props.id}`, {
             method: 'DELETE'
-        }).then(res => res.json())
+        }).then(res => res.json()).then(data => { 
+            console.log(data)
+        })
     }
 
     return(

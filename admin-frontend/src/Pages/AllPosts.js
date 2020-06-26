@@ -10,7 +10,7 @@ function AllPosts() {
 
     useEffect(() => {
         getAllPosts()
-    }, [])
+    }, [allPosts])
     
     const publishedPosts = allPosts.filter(post => post.isPublished)
     const unpublishedPosts = allPosts.filter(post => !post.isPublished)
