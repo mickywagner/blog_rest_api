@@ -8,10 +8,10 @@ function AllComments() {
     
     useEffect(() => {
         getAllComments()
-    })
+    }, [allComments])
 
     const comments = allComments.length < 1 ? null : 
-        allComments.map(comment => <Comment key={comment._id} text={comment.text} name={comment.name} post={comment.post.title}/>)
+        allComments.map(comment => <Comment key={comment._id} id={comment._id} text={comment.text} name={comment.name} post={comment.post}/>)
 
     return(
         <div>

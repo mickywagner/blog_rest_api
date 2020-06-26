@@ -33,7 +33,7 @@ exports.posts_details = (req, res, next) => {
            .populate('comments')
            .exec(function(err, post) {
                if(err) return next(err)
-               return res.json(post.toJSON())
+               return res.json(post)
            })
 }
 
@@ -63,7 +63,7 @@ exports.posts_delete_delete = (req, res, next) => {
     })
     BlogPost.findByIdAndDelete(req.params.postId, function deletePost(err) {
         if(err) {return next(err)}
-        return res.send(`Blog Post ${req.params.postId} was deleted`)
+        return res.json({message: `Blog Post ${req.params.postId} was deleted`})
     })
             
 }

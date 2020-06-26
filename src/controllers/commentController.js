@@ -78,7 +78,7 @@ exports.comments_edit_put = (req, res, next) => {
 exports.comments_delete_delete = (req, res, next) => {
     Comment.findByIdAndDelete(req.params.commentId, function deleteComment(err) {
         if(err) { return next(err)}
-        return res.send(`Comment ${req.params.commentId} was deleted`)
+        return res.json({message: `Comment ${req.params.commentId} was deleted`})
     })
 
 
