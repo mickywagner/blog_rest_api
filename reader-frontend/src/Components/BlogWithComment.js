@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Comment from './Comment'
 import CommentForm from './CommentForm'
 import { FaHeart, FaHeartBroken } from 'react-icons/fa'
+import { normalizeUnits } from 'moment';
 
 function BlogWithComment(props) {
     const [liked, setLiked] = useState(false)
@@ -10,16 +11,43 @@ function BlogWithComment(props) {
     const comments = props.post.comments.map(comment => <Comment comment={comment} key={comment._id}/>) 
     const commentNumber = props.post.comments.length
 
+    useEffect(() => {
+        console.log('change to likes')
+    }, [setLiked, setDisLiked])
+
     const handleLike = () => {
         setLiked(!liked)
-        // make api call to add like if liked == true
-        // else maek api call to remove like if like === false
+        const num = (liked ? -1 : 1) + props.post.likes 
+
+        fetch(`/api/posts/${props.post._id}/likes`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify({
+                "likes": num,
+            })
+        }).then(res => res.json()).then(data => {
+            console.log(data)
+        })
     }
 
     const handleDisLike = () => {
         setDisLiked(!disLiked) 
-        // make api call to add dislike if it's true
-        // else make api call to subtract dislike
+        const num = (disLiked ? -1 : 1) + props.post.dislikes
+ 
+        fetch(`/api/posts/${props.post._id}/dislikes`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            }, 
+            body: JSON.stringify({
+                "dislikes": num
+            })
+        }).then(res => res.json()).then(data => {
+            console.log(data)
+        })
+
     }
  
     return(

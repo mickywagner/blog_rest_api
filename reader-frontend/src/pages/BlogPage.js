@@ -15,7 +15,7 @@ function BlogPage({match}) {
             }
             )
             .catch(err => console.log(err))
-    }, [])
+    }, [blogPost])
 
 
     return(
