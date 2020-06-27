@@ -57,17 +57,16 @@ exports.posts_edit_put = (req, res, next) => {
 }
 
 exports.posts_put_like = (req, res, next) => {
-    const likedPost = new BlogPost(
-        {
-            _id: req.params.postId,
-            likes: req.body.likes,
-            dislikes: req.body.dislikes
-        }
-    )
+    BlogPost.findByIdAndUpdate({_id: req.params.postId}, {likes: req.body.likes}, function(err, result) {
+        if(err) return next(err)
+        return res.json({message: 'Like updated!'})
+    })
+}
 
-    BlogPost.findByIdAndUpdate(req.params.postId, likedPost, {}, function(err, thepost) {
-        if(err) {return next(err)}
-        return res.status(200).json(likedPost.toJSON())
+exports.posts_put_dislike = (req, res, next) => {
+    BlogPost.findByIdAndUpdate({_id: req.params.postId}, {dislikes: req.body.dislikes}, function(err, result) {
+        if(err) return next(err)
+        return res.json({message: 'Dislikes updated!'})
     })
 }
 

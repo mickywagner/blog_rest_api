@@ -23,6 +23,7 @@ router.post('/posts', verifyToken, blogPostController.posts_create_post)
 router.put('/posts/:postId',  verifyToken, blogPostController.posts_edit_put)
 
 router.put('/posts/:postId/likes', blogPostController.posts_put_like)
+router.put('/posts/:postId/dislikes', blogPostController.posts_put_dislike)
 
 router.delete('/posts/:postId', verifyToken, blogPostController.posts_delete_delete)
 
