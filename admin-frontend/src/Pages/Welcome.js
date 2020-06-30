@@ -6,6 +6,7 @@ import AllPosts from './AllPosts'
 import AllComments from './AllComments';
 import CreateNewPost from './CreateNewPost'
 import EditPost from './EditPost';
+import editComment from './EditComment'
 
 
 function Welcome() {
@@ -37,12 +38,11 @@ function Welcome() {
                     <Route exact path="/admin">
                         <h1>Welcome {user}! Blog Dashboard</h1>
                     </Route>
+                    <Route path="/admin/posts/:postId/comments/:commentId/edit" component={editComment} />
                     <Route path="/admin/posts/:postId/edit" component={EditPost}/>
                     <Route path="/admin/posts" component={AllPosts} />
                     <Route path="/admin/comments" component={AllComments}/>
                     <Route path="/admin/create-post" component={CreateNewPost}/>
-                    
-                   
 
                 </Switch>
             </div>
