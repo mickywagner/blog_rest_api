@@ -6,7 +6,7 @@ function BlogForm(props) {
     const [isPublished, setIsPublished] = useState(props.post.isPublished)
 
     return(
-        <form onSubmit={props.submitMethod}>
+        <form id="blogform" onSubmit={props.submitMethod}>
             <input type="text" id="title" placeholder="Blog Title" value={title} onChange={(e) => setTitle(e.target.value)}></input>
             <textarea id="content" placeholder="Blog post text" value={text} onChange={(e) => {setText(e.target.value)}}></textarea>
             <label><input type='checkbox' id="publish" checked={isPublished} onChange={(e) =>{setIsPublished(e.target.checked)}}></input> Publish Post</label>

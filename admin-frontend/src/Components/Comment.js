@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 function Comment(props) {
     const deleteComment = () => {
@@ -17,7 +18,7 @@ function Comment(props) {
              <tr>
                 <td>{props.text}
                     <span>
-                        <p>Edit</p> | <p onClick={deleteComment}>Delete</p>
+                        <p><Link to={`/admin/posts/${props.post._id}/comments/${props.id}/edit`}>Edit</Link></p> | <p onClick={deleteComment}>Delete</p>
                     </span>
                 </td>
                 <td>{props.name}</td>

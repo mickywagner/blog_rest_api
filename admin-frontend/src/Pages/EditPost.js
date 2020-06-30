@@ -37,7 +37,10 @@ function EditPost(props) {
     return(
         <React.Fragment>
             <h1>Edit Post</h1>
-            <BlogForm post={postToEdit} submitMethod={updatePost}/>
+            <div className="editor">
+                <BlogForm post={postToEdit} submitMethod={updatePost}/>
+            </div>
+            
         </React.Fragment>
     )
 }

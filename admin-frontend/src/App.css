@@ -106,7 +106,7 @@
     color: rgb(27, 188, 194);
 }
 
-.side-nav button {
+.side-nav button, .editor button {
     color: white;
     background: rgb(27, 188, 194);
     font-size: 1em;
@@ -194,6 +194,7 @@ td span p:hover {
 .content input, textarea {
     padding: 10px;
     margin-bottom: 10px;
+    font-size: 1em;
 }
 
 .content textarea {
@@ -206,6 +207,9 @@ td span p:hover {
 }
 
 .editor {
-    padding: 20px 20px 20px 0; 
+    margin-top: 15px;
+    margin-right: 15px;
+    background: cornflowerblue;
 }
+
 
