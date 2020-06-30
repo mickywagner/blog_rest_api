@@ -61,15 +61,7 @@ exports.comment_details = (req, res, next) => {
 }
 
 exports.comments_edit_put = (req, res, next) => {
-    const editComment = new Comment(
-        {
-            _id: req.params.commentId,
-            name: req.body.name,
-            text: req.body.text,
-        }
-    )
-
-    Comment.findByIdAndUpdate(req.params.commentId, editComment, {}, function(err, thecomment) {
+    Comment.findByIdAndUpdate({_id: req.params.commentId}, {name: req.body.name, text: req.body.text}, function(err, thecomment) {
         if(err) { return next(err)}
         return res.status(200).json(thecomment.toJSON())
     })

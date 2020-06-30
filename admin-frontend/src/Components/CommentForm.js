@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
+import {useHistory} from "react-router-dom"
 
 
 function CommentForm(props) {
     const [name, setName] = useState(props.comment.name)
     const [text, setText] = useState(props.comment.text)
+
+    const history = useHistory()
 
     const submitComment = (e) => {
         e.preventDefault()
@@ -16,7 +19,10 @@ function CommentForm(props) {
                 "name": name,
                 "text": text
             })
-        }).then(res => res.json()).then(data => console.log(data))
+        }).then(res => res.json()).then(data => {
+            console.log(data)
+            history.push('/admin/comments')
+        })
     }
 
     return(
