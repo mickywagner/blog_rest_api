@@ -242,3 +242,16 @@ input, textarea {
   color: white;
   cursor: pointer;
 }
+
+/* Like Hearts */
+
+span button {
+  background: none;
+  border: none;
+  color: rgb(255, 0, 85);
+  font-size: 1em;
+}
+
+span button:focus {
+  outline: none;
+}
