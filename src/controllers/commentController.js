@@ -71,7 +71,7 @@ exports.comments_edit_put = (req, res, next) => {
 
     Comment.findByIdAndUpdate(req.params.commentId, editComment, {}, function(err, thecomment) {
         if(err) { return next(err)}
-        return res.send(thecomment)
+        return res.status(200).json(thecomment.toJSON())
     })
 }
 
