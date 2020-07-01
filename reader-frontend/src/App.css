@@ -66,7 +66,7 @@ nav ul li:hover {
 }
 
 .home div {
-  width: 450px;
+  max-width: 450px;
   padding: 20px;
   border-radius: 5px;
   text-align: center;
@@ -330,4 +330,5 @@ span button:focus {
   .main {
     grid-template-columns: 1fr;
   }
+
 }

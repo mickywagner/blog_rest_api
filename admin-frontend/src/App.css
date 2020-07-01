@@ -216,4 +216,27 @@ td span p:hover {
     background: cornflowerblue;
 }
 
+@media only screen and (max-width: 600px) {
+    .main {
+       display: flex;
+       flex-direction: column;
+    }
 
+    .side-nav {
+        height: 60px;
+        flex-direction: row;
+        max-width: none;
+        width: 100vw;
+        margin-bottom: 10px;
+        font-size: .8em;
+    }
+
+    .side-nav button {
+        margin-left: auto;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+}
