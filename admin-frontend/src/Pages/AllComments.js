@@ -10,7 +10,7 @@ function AllComments() {
         getAllComments()
     }, [allComments])
 
-    const comments = allComments.length < 1 ? null : 
+    const comments = allComments.length < 1 ? <p>No comments found</p>: 
         allComments.map(comment => <Comment key={comment._id} id={comment._id} text={comment.text} name={comment.name} post={comment.post}/>)
 
     return(
@@ -18,6 +18,7 @@ function AllComments() {
             <h2>
                 Comments
             </h2>
+
             <div className="blog-list">
                 <table>
                     <thead>

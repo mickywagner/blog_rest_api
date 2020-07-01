@@ -84,6 +84,7 @@ nav ul li:hover {
 
 .home a:hover {
   text-decoration: underline;
+  
 }
 
 .home svg {
@@ -94,6 +95,7 @@ nav ul li:hover {
   margin-top: 10px;
   margin-bottom: 10px;
   line-height: 1.5em;
+  color: #282c34;
 }
 /* Blog Posts */
 
@@ -135,12 +137,17 @@ nav ul li:hover {
 
 .blog-post-body {
   padding: 10px 10px;
+  line-height: 1.5em;
+  max-height: 250px;
+  overflow: hidden;
+  margin-bottom: 10px;
 }
 
 .blog-post-body p {
   font-weight: 500;
   line-height: 1.75em;
   text-align: justify;
+  
 }
 
 
@@ -317,4 +324,10 @@ span button {
 
 span button:focus {
   outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
 }

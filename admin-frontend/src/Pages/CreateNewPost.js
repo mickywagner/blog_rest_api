@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import BlogForm from '../Components/BlogForm'
 import {useHistory} from 'react-router-dom'
+import { AppContext } from '../Context/AppContext';
 
 function CreateNewPost() {
     let history = useHistory()
+    const {getAllPosts} = useContext(AppContext)
 
     const submitBlog = (e) => {
         e.preventDefault()
@@ -22,6 +24,7 @@ function CreateNewPost() {
         }).then(res => res.json()).then(data => {
             console.log(data)
             history.push('/admin/posts')
+            getAllPosts()
         })
     }
 
