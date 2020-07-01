@@ -247,6 +247,20 @@ nav ul li:hover {
   margin-bottom: 10px;
 }
 
+.sidebar a {
+  color: #282c34;
+  padding-right: 10px;
+  font-size: 1.5em;
+}
+
+.sidebar a:hover {
+  color: rgb(255, 0, 85);
+}
+
+.social {
+  text-align: center;
+}
+
 /* Comment Form */
 
 .form {

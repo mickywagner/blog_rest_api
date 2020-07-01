@@ -15,6 +15,7 @@ function Posts() {
             <div className="posts">
                 {isLoading && <p>Blog posts are loading...</p>}
                 {allBlogPosts.length !== 0 && posts } 
+                {!isLoading & allBlogPosts.length === 0 ? "No blog posts found :(" : null}
             </div>
 
             <Sidebar />
