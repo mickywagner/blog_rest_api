@@ -2,3 +2,4 @@
 node_modules
 todo
 requests.rest
+.DS_Store
