@@ -1,7 +1,12 @@
 import 'dotenv/config'
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
+
 import cors from 'cors'
 import express from 'express'
 import mongoose from 'mongoose'
+
 
 import { connectDb } from './models'
 import indexRouter from './routes/index'
