@@ -4,7 +4,7 @@
   "description": "Odin project Blog API backend project",
   "main": "app.js",
   "scripts": {
-    "devstart": "nodemon --exec babel-node src/app.js",
+    "devstart": "nodemon --exec babel-node backend/src/app.js",
     "clean": "rm -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
     "build": "npm run clean && npm run build-babel",
