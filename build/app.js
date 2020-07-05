@@ -8,10 +8,6 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 require("dotenv/config");
 
-require("core-js/stable");
-
-require("regenerator-runtime/runtime");
-
 var _cors = _interopRequireDefault(require("cors"));
 
 var _express = _interopRequireDefault(require("express"));
