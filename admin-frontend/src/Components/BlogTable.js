@@ -13,7 +13,7 @@ function BlogTable(props) {
             dislikes={post.dislikes}
             id={post._id}
         />
-    ) : <p>No blog posts found</p>
+    ) : <tr><td>No blog posts found</td></tr>
     
     return(
         <table>

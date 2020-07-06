@@ -10,7 +10,7 @@ function AllComments() {
         getAllComments()
     }, [allComments])
 
-    const comments = allComments.length < 1 ? <p>No comments found</p>: 
+    const comments = allComments.length < 1 ? <tr><td>No comments found</td></tr>: 
         allComments.map(comment => <Comment key={comment._id} id={comment._id} text={comment.text} name={comment.name} post={comment.post}/>)
 
     return(

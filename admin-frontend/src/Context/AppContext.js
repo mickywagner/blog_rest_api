@@ -9,7 +9,7 @@ function AppContextProvider({children}) {
     const [allPosts, setAllPosts] = useState([])
     const [allComments, setAllComments] = useState([])
 
-    const apiURL = 'https://blog-api-072020.herokuapp.com/'
+    const apiURL = 'https://blog-api-072020.herokuapp.com'
 
     const login = (e) => {
         e.preventDefault()
@@ -24,7 +24,7 @@ function AppContextProvider({children}) {
             })
         }
 
-        fetch('/login', requestOptions)
+        fetch(`${apiURL}/login`, requestOptions)
             .then(response => response.json())
             .then(data => {
                 setMessage(data.message)
@@ -37,13 +37,13 @@ function AppContextProvider({children}) {
     }
 
     const getAllPosts = async () => {
-        const response = await fetch(`${apiURL}/posts`)
+        const response = await fetch(`${apiURL}/api/posts`)
         const data = await response.json()
         setAllPosts(data)
     }
 
     const getAllComments = async () => {
-        const response = await fetch(`${apiURL}/comments`)
+        const response = await fetch(`${apiURL}/api/comments`)
         const data = await response.json()
         setAllComments(data)
     }
