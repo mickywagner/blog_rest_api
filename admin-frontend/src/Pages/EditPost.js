@@ -16,7 +16,7 @@ function EditPost(props) {
         e.preventDefault()
         const {title, content, publish} = e.target
 
-        fetch(`/api/posts/${postID}`, {
+        fetch(`https://blog-api-072020.herokuapp.com/api/posts/${postID}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

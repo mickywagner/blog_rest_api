@@ -5,7 +5,7 @@ function Comment(props) {
     const deleteComment = () => {
         const ok = window.confirm('Are you sure you want to delete this comment?')
         if(ok) {
-            fetch(`/api/posts/${props.post._id}/comments/${props.id}`, {
+            fetch(`https://blog-api-072020.herokuapp.com/api/posts/${props.post._id}/comments/${props.id}`, {
                 method: 'DELETE',
             }).then(res => res.json()).then(data => console.log(data))
         } else {

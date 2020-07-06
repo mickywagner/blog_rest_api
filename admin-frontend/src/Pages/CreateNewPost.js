@@ -11,7 +11,7 @@ function CreateNewPost() {
         e.preventDefault()
         const {title, content, publish} = e.target
 
-        fetch(`/api/posts`, {
+        fetch(`https://blog-api-072020.herokuapp.com/api/posts`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

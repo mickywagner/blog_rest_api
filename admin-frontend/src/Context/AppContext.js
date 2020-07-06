@@ -9,7 +9,7 @@ function AppContextProvider({children}) {
     const [allPosts, setAllPosts] = useState([])
     const [allComments, setAllComments] = useState([])
 
-    const apiURL = 'http://localhost:3001/api'
+    const apiURL = 'https://blog-api-072020.herokuapp.com/'
 
     const login = (e) => {
         e.preventDefault()

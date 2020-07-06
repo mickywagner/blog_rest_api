@@ -10,7 +10,7 @@ function CommentForm(props) {
 
     const submitComment = (e) => {
         e.preventDefault()
-        fetch(`/api/posts/${props.comment.post._id}/comments/${props.comment._id}`, {
+        fetch(`https://blog-api-072020.herokuapp.com/api/posts/${props.comment.post._id}/comments/${props.comment._id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
