@@ -15,7 +15,7 @@ function Favorite(props) {
         setLiked(!liked)
         const num = (liked ? -1 : 1) + props.likes 
 
-        fetch(`/api/posts/${props.postId}/likes`, {
+        fetch(`https://blog-api-072020.herokuapp.com/api/posts/${props.postId}/likes`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -32,7 +32,7 @@ function Favorite(props) {
         setDisLiked(!disLiked) 
         const num = (disLiked ? -1 : 1) + props.dislikes
  
-        fetch(`/api/posts/${props.postId}/dislikes`, {
+        fetch(`https://blog-api-072020.herokuapp.com/api/posts/${props.postId}/dislikes`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

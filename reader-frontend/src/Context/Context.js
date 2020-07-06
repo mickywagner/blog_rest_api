@@ -7,7 +7,7 @@ function AppContextProvider({children}) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch('/api/posts')
+        fetch('https://blog-api-072020.herokuapp.com/api/posts')
           .then(response => response.json())
           .then(json => {
             const publishedPosts = json.filter(post => post.isPublished === true) 

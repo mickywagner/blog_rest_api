@@ -7,7 +7,7 @@ function BlogPage({match}) {
     const { isLoading, setIsLoading } = useContext(AppContext)
 
     useEffect(() => {
-        fetch(`/api/posts/${match.params.id}`)
+        fetch(`https://blog-api-072020.herokuapp.com/api/posts/${match.params.id}`)
             .then(response => response.json())
             .then(json => {
                 setBlogPost(json[0])

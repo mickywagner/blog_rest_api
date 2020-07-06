@@ -5,7 +5,7 @@ function CommentForm(props) {
     function submitComment(e) {
         const {name, text} = e.target
     
-        fetch(`/api/posts/${props.postid}/comments`, {
+        fetch(`https://blog-api-072020.herokuapp.com/api/posts/${props.postid}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type':'application/json'
