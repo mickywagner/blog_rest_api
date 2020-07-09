@@ -9,7 +9,7 @@ import { AppContextProvider } from './Context/AppContext';
 ReactDOM.render(
   <React.StrictMode>
     <AppContextProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <App />
       </Router>
     </AppContextProvider>
