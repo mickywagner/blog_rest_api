@@ -23,23 +23,10 @@ var _api = _interopRequireDefault(require("./routes/api"));
 var _cookieParser = _interopRequireDefault(require("cookie-parser"));
 
 var app = (0, _express["default"])();
-var whitelist = ['http://localhost:3000', 'https://mickywagner.github.io/blog_rest_api/', 'https://blog-admin-2020.netlify.app/'];
+app.use((0, _cors["default"])());
 app.use(_express["default"].json());
 app.use(_express["default"].urlencoded({
   extended: true
-}));
-app.use((0, _cors["default"])({
-  origin: function origin(_origin, callback) {
-    if (!_origin) return callback(null, true);
-
-    if (whitelist.indexOf(_origin) === -1) {
-      var message = "The CORS policy for this origin doesn't ' +\n                  'allow access from the particular origin.";
-      return callback(new Error(message), false);
-    }
-
-    return callback(null, true);
-  },
-  credentials: true
 }));
 app.use((0, _cookieParser["default"])());
 
