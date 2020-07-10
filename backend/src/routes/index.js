@@ -21,7 +21,7 @@ router.post('/login', async (req, res, next) => {
                 if(error) return next(error)
                 const userForToken = { id: user._id, username: user.username}
                 const token = jwt.sign(userForToken, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1d'})
-                res.cookie('token', token, { httpOnly: false })
+                res.cookie('token', token, { httpOnly: true })
                 return res.json({message: 'Login successful', token, userForToken})
             })
         } catch(error) {

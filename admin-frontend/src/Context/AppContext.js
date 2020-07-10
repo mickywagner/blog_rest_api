@@ -18,6 +18,7 @@ function AppContextProvider({children}) {
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
             body: JSON.stringify({
                 email: email.value,
                 password: password.value
@@ -33,6 +34,7 @@ function AppContextProvider({children}) {
                     setMessage('')
                     setUser(data.userForToken.username)
                 }
+                console.log(data)
             })  
     }
 
