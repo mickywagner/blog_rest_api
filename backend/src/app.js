@@ -10,15 +10,10 @@ import cookieParser from 'cookie-parser'
 
 const app = express()
 
-const reader = new RegExp(/^https:\/\/mickywagner\.github\.io\/blog_rest_api\/?([a-z]*)\/([a-z0-9]*)/g)
-
-let whitelist = ['http://localhost:3000', reader, 'https://blog-admin-2020.netlify.app']
-
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
-    origin: whitelist,
     credentials: true
   }));
 app.use(cookieParser())
