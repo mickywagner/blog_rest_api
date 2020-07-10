@@ -8,7 +8,6 @@
     "prestart": "babel ./backend/src --out-dir build",
     "start": "node ./build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "cd reader-frontend && npm install && npm run build"
   },
   "author": "Michaela",
   "license": "ISC",
