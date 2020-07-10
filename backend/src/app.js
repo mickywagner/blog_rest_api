@@ -16,7 +16,10 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({ credentials: true }))
+app.use(cors({ orign: [
+    'https://mickywagner.github.io/blog_rest_api/',
+    'https://blog-admin-2020.netlify.app/'
+]}))
 app.use(cookieParser())
 mongoose.set('useFindAndModify', false);
 
