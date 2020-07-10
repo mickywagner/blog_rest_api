@@ -16,15 +16,7 @@ let whitelist = ['http://localhost:3000', 'https://mickywagner.github.io/blog_re
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors({
-    origin: function(origin, callback){
-      if(!origin) return callback(null, true);
-      if(whitelist.indexOf(origin) === -1){
-        var message = `The CORS policy for this origin doesn't ' +
-                  'allow access from the particular origin.`;
-        return callback(new Error(message), false);
-      }
-      return callback(null, true);
-    },
+    origin: whitelist,
     credentials: true
   }));
 app.use(cookieParser())
