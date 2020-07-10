@@ -3,7 +3,8 @@ REST API using Node/Express with client sites for readers of the blog and admini
 
 <ul>
   <li>Client site for blog readers: https://mickywagner.github.io/blog_rest_api/</li>
-  <li>API hosted at: https://blog-api-072020.herokuapp.com/api/posts</li>
+  <li>Client for blog admin: https://blog-admin-2020.netlify.app/</li>
+  <li>API hosted at: https://blog-api-072020.herokuapp.com/api/posts</li
 </ul>
 
 
